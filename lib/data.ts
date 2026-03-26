@@ -108,6 +108,7 @@ export const WORK: WorkItem[] = [
       "Discovered the discipline of working on ONE aspect of a deck at a time: messaging, then flow, then visuals, then design.",
       "Adapted quickly to a new professional environment with unfamiliar people and high expectations.",
     ],
+    highlight: "Food Ministry deck built — 3 of 5 GTM case studies approved",
   },
   {
     id: "hide-and-sneak",

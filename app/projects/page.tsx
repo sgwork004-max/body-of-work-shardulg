@@ -42,7 +42,7 @@ function TimelineEntry({ project }: { project: FullProject }) {
               {project.hours && (
                 <>
                   <span className="text-line-dark text-xs">·</span>
-                  <span className="label text-ink-faint">{project.hours}</span>
+                  <span className="label px-2 py-0.5 bg-surface border border-line text-ink-faint">{project.hours}</span>
                 </>
               )}
               {project.isHero && (

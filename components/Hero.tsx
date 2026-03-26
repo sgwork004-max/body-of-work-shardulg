@@ -3,210 +3,272 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-/* ─────────────────────────────────────────────────────────────
-   Full Work Map — all 4 companies + key projects as one diagram
-   ──────────────────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   WORK MAP — comprehensive mind map of all work & achievements
+   ═════════════════════════════════════════════════════════════ */
 function WorkMap() {
   const [drawn, setDrawn] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setDrawn(true), 400);
+    const t = setTimeout(() => setDrawn(true), 300);
     return () => clearTimeout(t);
   }, []);
 
-  const line = (delay: number): React.CSSProperties => ({
-    strokeDasharray: 320,
-    strokeDashoffset: drawn ? 0 : 320,
+  const branch = (delay: number): React.CSSProperties => ({
+    strokeDasharray: 400,
+    strokeDashoffset: drawn ? 0 : 400,
     transition: `stroke-dashoffset 1.1s cubic-bezier(0.4,0,0.2,1) ${delay}s`,
   });
-
   const fade = (delay: number): React.CSSProperties => ({
     opacity: drawn ? 1 : 0,
-    transition: `opacity 0.5s ease ${delay}s`,
+    transition: `opacity 0.45s ease ${delay}s`,
+  });
+  const sub = (delay: number): React.CSSProperties => ({
+    strokeDasharray: 80,
+    strokeDashoffset: drawn ? 0 : 80,
+    transition: `stroke-dashoffset 0.5s ease ${delay}s`,
   });
 
   return (
     <svg
-      viewBox="0 0 700 540"
+      viewBox="0 0 820 660"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="w-full h-full"
       style={{ overflow: "visible" }}
-      aria-label="Shardul's body of work map"
+      aria-label="Shardul's full body of work"
     >
-      {/* ── Faint outer ring ── */}
-      <ellipse cx="346" cy="268" rx="145" ry="118"
-        stroke="#E5E3DC" strokeWidth="1" strokeDasharray="7 6"
+      {/* ── Outer dotted ring ── */}
+      <ellipse cx="410" cy="330" rx="170" ry="145"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="6 7"
         fill="none" style={fade(0.1)} />
 
-      {/* ══════════════════════════════════════
-          BRANCH LINES — center to each node
-          ══════════════════════════════════════ */}
-
-      {/* → Therefore Design (top-left) */}
-      <path d="M 288 252 C 230 228, 165 196, 100 175"
-        stroke="#C8C5BC" strokeWidth="1.8" strokeLinecap="round" style={line(0.2)} />
-
-      {/* → Hide & Sneak (bottom-left) */}
-      <path d="M 295 290 C 232 325, 168 358, 112 390"
-        stroke="#C8C5BC" strokeWidth="1.8" strokeLinecap="round" style={line(0.35)} />
-
-      {/* → KOEL Research (top) */}
-      <path d="M 336 235 C 318 176, 300 120, 278 72"
-        stroke="#C8C5BC" strokeWidth="1.8" strokeLinecap="round" style={line(0.5)} />
-
+      {/* ════════════════════════════════
+          MAIN BRANCH LINES
+          ═════════════════════════════= */}
+      {/* → Therefore (top-left) */}
+      <path d="M 358 312 C 288 272, 210 232, 130 198"
+        stroke="#B8B5AB" strokeWidth="2" strokeLinecap="round" style={branch(0.15)} />
+      {/* → KOEL (top) */}
+      <path d="M 393 292 C 375 230, 355 165, 330 85"
+        stroke="#B8B5AB" strokeWidth="2" strokeLinecap="round" style={branch(0.3)} />
       {/* → YelloSKYE (top-right) */}
-      <path d="M 406 245 C 460 198, 508 158, 556 118"
-        stroke="#C8C5BC" strokeWidth="1.8" strokeLinecap="round" style={line(0.65)} />
-
-      {/* → Rayden Design (right) */}
-      <path d="M 412 268 C 468 270, 524 274, 576 278"
-        stroke="#C8C5BC" strokeWidth="1.8" strokeLinecap="round" style={line(0.8)} />
-
+      <path d="M 458 300 C 510 248, 560 188, 618 138"
+        stroke="#B8B5AB" strokeWidth="2" strokeLinecap="round" style={branch(0.45)} />
+      {/* → Rayden (right) */}
+      <path d="M 478 332 C 556 334, 620 338, 692 343"
+        stroke="#B8B5AB" strokeWidth="2" strokeLinecap="round" style={branch(0.6)} />
       {/* → Stahl (bottom-right) */}
-      <path d="M 386 292 C 416 348, 446 396, 474 444"
-        stroke="#C8C5BC" strokeWidth="1.8" strokeLinecap="round" style={line(0.95)} />
+      <path d="M 455 362 C 500 422, 545 478, 582 548"
+        stroke="#B8B5AB" strokeWidth="2" strokeLinecap="round" style={branch(0.75)} />
+      {/* → Hide & Sneak (bottom-left) */}
+      <path d="M 362 360 C 300 408, 230 462, 135 535"
+        stroke="#B8B5AB" strokeWidth="2" strokeLinecap="round" style={branch(0.9)} />
 
-      {/* ══════════════════════════════════════
-          CENTRAL NODE
-          ══════════════════════════════════════ */}
-      <ellipse cx="346" cy="268" rx="70" ry="34"
-        fill="#FFE141" fillOpacity="0.9" stroke="#C8C5BC" strokeWidth="1.5"
+      {/* ════════════════════════════════
+          CENTER NODE
+          ═════════════════════════════= */}
+      <ellipse cx="410" cy="330" rx="72" ry="35"
+        fill="#FFE141" fillOpacity="0.92" stroke="#B8B5AB" strokeWidth="1.5"
         style={fade(0.05)} />
-      <text x="346" y="263" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="22" fontWeight="600" fill="#1A1A1A"
-        style={fade(0.1)}>
-        Shardul
+      <text x="410" y="325" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="22" fontWeight="600" fill="#111111"
+        style={fade(0.1)}>Shardul</text>
+      <text x="410" y="344" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#524F4B"
+        style={fade(0.15)}>body of work</text>
+
+      {/* ════════════════════════════════
+          THEREFORE DESIGN
+          ═════════════════════════════= */}
+      <ellipse cx="102" cy="196" rx="66" ry="27"
+        fill="#F5F4F0" stroke="#D8D5CC" strokeWidth="1.5" style={fade(0.3)} />
+      <text x="102" y="201" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="16" fill="#111111" style={fade(0.34)}>
+        Therefore Design
       </text>
-      <text x="346" y="282" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="12" fill="#6B6860"
-        style={fade(0.15)}>
-        body of work
+      {/* sub-nodes */}
+      <line x1="76" y1="180" x2="52" y2="162"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(0.5)} />
+      <text x="48" y="158" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(0.55)}>
+        12+ meetings wk 1
+      </text>
+      <line x1="80" y1="192" x2="32" y2="188"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(0.55)} />
+      <text x="28" y="185" textAnchor="end"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(0.6)}>
+        Food Ministry deck
+      </text>
+      <line x1="78" y1="205" x2="32" y2="218"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(0.6)} />
+      <text x="28" y="215" textAnchor="end"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(0.65)}>
+        3/5 GTM cases approved
+      </text>
+      <line x1="90" y1="218" x2="68" y2="238"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(0.65)} />
+      <text x="64" y="248" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="10" fill="#B8B5AB" style={fade(0.7)}>
+        Pixar framework
       </text>
 
-      {/* ══════════════════════════════════════
-          COMPANY / PROJECT NODES
-          ══════════════════════════════════════ */}
-
-      {/* ── Therefore Design ── */}
-      <ellipse cx="72" cy="172" rx="62" ry="26"
-        fill="#F5F4F0" stroke="#E5E3DC" strokeWidth="1.5" style={fade(0.38)} />
-      <text x="72" y="177" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="16" fill="#1A1A1A" style={fade(0.42)}>
-        Therefore
-      </text>
-      {/* Stats */}
-      <text x="72" y="144" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(0.55)}>
-        credential decks
-      </text>
-      <text x="72" y="155" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(0.58)}>
-        12+ meetings · BD ops
-      </text>
-      <path d="M 72 160 L 72 148" stroke="#E5E3DC" strokeWidth="0.8"
-        strokeDasharray="2 2" style={fade(0.6)} />
-
-      {/* ── Hide & Sneak ── */}
-      <ellipse cx="84" cy="392" rx="68" ry="26"
-        fill="#F5F4F0" stroke="#E5E3DC" strokeWidth="1.5" style={fade(0.52)} />
-      <text x="84" y="397" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="16" fill="#1A1A1A" style={fade(0.56)}>
-        Hide & Sneak
-      </text>
-      {/* Stats */}
-      <text x="84" y="425" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(0.68)}>
-        ₹6L in sales · 50+ deals
-      </text>
-      <text x="84" y="437" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(0.7)}>
-        432 hours on the floor
-      </text>
-
-      {/* ── KOEL Research ── */}
-      <ellipse cx="272" cy="60" rx="74" ry="26"
-        fill="#FFFCE0" stroke="#C8C5BC" strokeWidth="1.5" style={fade(0.65)} />
-      <text x="272" y="65" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="16" fill="#1A1A1A" style={fade(0.68)}>
+      {/* ════════════════════════════════
+          KOEL RESEARCH
+          ═════════════════════════════= */}
+      <ellipse cx="326" cy="72" rx="72" ry="27"
+        fill="#FFFCE0" stroke="#B8B5AB" strokeWidth="1.5" style={fade(0.42)} />
+      <text x="326" y="77" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="16" fill="#111111" style={fade(0.46)}>
         KOEL Research
       </text>
-      {/* Sub-branches from KOEL */}
-      <path d="M 246 36 L 216 14" stroke="#E5E3DC" strokeWidth="1"
-        strokeDasharray="3 3" style={fade(0.78)} />
-      <text x="208" y="12" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(0.8)}>
-        73 interviews
+      {/* sub-nodes */}
+      <line x1="290" y1="50" x2="248" y2="26"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(0.62)} />
+      <text x="242" y="22" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(0.67)}>
+        73 farmer interviews
       </text>
-      <path d="M 296 36 L 318 14" stroke="#E5E3DC" strokeWidth="1"
-        strokeDasharray="3 3" style={fade(0.82)} />
-      <text x="328" y="12" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(0.84)}>
-        5 cities · boardroom
+      <line x1="326" y1="44" x2="326" y2="20"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(0.66)} />
+      <text x="326" y="16" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(0.71)}>
+        5 cities · Maharashtra
       </text>
-      <text x="272" y="90" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(0.86)}>
-        500+ hours · MD presentation
+      <line x1="364" y1="50" x2="406" y2="26"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(0.70)} />
+      <text x="412" y="22" textAnchor="start"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(0.75)}>
+        MD Gauri Kirloskar
+      </text>
+      <line x1="326" y1="99" x2="326" y2="118"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(0.74)} />
+      <text x="326" y="128" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="10" fill="#B8B5AB" style={fade(0.78)}>
+        500+ hours · won internal bid
       </text>
 
-      {/* ── YelloSKYE ── */}
-      <ellipse cx="580" cy="108" rx="58" ry="24"
-        fill="#FFE141" fillOpacity="0.35" stroke="#C8C5BC" strokeWidth="1.5"
-        style={fade(0.78)} />
-      <text x="580" y="113" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="16" fill="#1A1A1A" style={fade(0.82)}>
+      {/* ════════════════════════════════
+          YELLOSKYE (current)
+          ═════════════════════════════= */}
+      <ellipse cx="630" cy="128" rx="62" ry="26"
+        fill="#FFE141" fillOpacity="0.4" stroke="#B8B5AB" strokeWidth="1.5"
+        style={fade(0.55)} />
+      <text x="630" y="133" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="16" fill="#111111" style={fade(0.59)}>
         YelloSKYE
       </text>
-      <text x="580" y="82" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(0.9)}>
+      <text x="630" y="100" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="12" fill="#8A8886" style={fade(0.64)}>
         current ●
       </text>
-      <text x="580" y="136" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(0.92)}>
-        strategy · execution
+      <text x="630" y="160" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="10" fill="#B8B5AB" style={fade(0.68)}>
+        strategy · execution · documentation
       </text>
 
-      {/* ── Rayden Design ── */}
-      <ellipse cx="614" cy="278" rx="66" ry="26"
-        fill="#F5F4F0" stroke="#E5E3DC" strokeWidth="1.5" style={fade(0.92)} />
-      <text x="614" y="283" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="16" fill="#1A1A1A" style={fade(0.95)}>
+      {/* ════════════════════════════════
+          RAYDEN DESIGN
+          ═════════════════════════════= */}
+      <ellipse cx="720" cy="343" rx="68" ry="27"
+        fill="#F5F4F0" stroke="#D8D5CC" strokeWidth="1.5" style={fade(0.7)} />
+      <text x="720" y="348" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="16" fill="#111111" style={fade(0.74)}>
         Rayden Design
       </text>
-      {/* Stats to the right */}
-      <text x="614" y="250" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(1.05)}>
-        228 outreaches
+      {/* sub-nodes */}
+      <line x1="745" y1="325" x2="778" y2="300"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(0.86)} />
+      <text x="782" y="297" textAnchor="start"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(0.9)}>
+        228 cold outreaches
       </text>
-      <text x="614" y="308" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(1.08)}>
-        20+ meetings · 300+ leads
+      <line x1="788" y1="343" x2="808" y2="343"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(0.9)} />
+      <text x="812" y="347" textAnchor="start"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(0.95)}>
+        20+ meetings
+      </text>
+      <line x1="748" y1="362" x2="778" y2="386"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(0.94)} />
+      <text x="782" y="390" textAnchor="start"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(0.98)}>
+        300+ leads built
+      </text>
+      <text x="720" y="378" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="10" fill="#B8B5AB" style={fade(1.0)}>
+        B2B pipeline · 7 templates · SOPs
       </text>
 
-      {/* ── Stahl ── */}
-      <ellipse cx="486" cy="458" rx="62" ry="24"
-        fill="#F5F4F0" stroke="#E5E3DC" strokeWidth="1.5" style={fade(1.05)} />
-      <text x="486" y="463" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="16" fill="#1A1A1A" style={fade(1.08)}>
+      {/* ════════════════════════════════
+          STAHL
+          ═════════════════════════════= */}
+      <ellipse cx="596" cy="558" rx="60" ry="26"
+        fill="#F5F4F0" stroke="#D8D5CC" strokeWidth="1.5" style={fade(0.82)} />
+      <text x="596" y="563" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="16" fill="#111111" style={fade(0.86)}>
         Stahl
       </text>
-      <text x="486" y="487" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(1.15)}>
-        5 domains · CLV + legal
+      {/* sub-nodes */}
+      <line x1="620" y1="542" x2="658" y2="524"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(1.0)} />
+      <text x="662" y="521" textAnchor="start"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(1.04)}>
+        CLV mapping
       </text>
-      <text x="486" y="432" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA" style={fade(1.18)}>
-        brand strategy · retail
+      <line x1="638" y1="558" x2="668" y2="558"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(1.04)} />
+      <text x="672" y="562" textAnchor="start"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(1.08)}>
+        Flipkart legal review
+      </text>
+      <line x1="618" y1="574" x2="644" y2="592"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(1.08)} />
+      <text x="648" y="596" textAnchor="start"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(1.12)}>
+        brand storytelling
+      </text>
+      <text x="596" y="592" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="10" fill="#B8B5AB" style={fade(1.14)}>
+        5 domains · 5 weeks · Amazon PDP
+      </text>
+
+      {/* ════════════════════════════════
+          HIDE & SNEAK
+          ═════════════════════════════= */}
+      <ellipse cx="106" cy="538" rx="72" ry="27"
+        fill="#F5F4F0" stroke="#D8D5CC" strokeWidth="1.5" style={fade(0.96)} />
+      <text x="106" y="543" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="16" fill="#111111" style={fade(1.0)}>
+        Hide &amp; Sneak
+      </text>
+      {/* sub-nodes */}
+      <line x1="72" y1="522" x2="38" y2="504"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(1.12)} />
+      <text x="34" y="501" textAnchor="end"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(1.16)}>
+        ₹6L in sales
+      </text>
+      <line x1="44" y1="535" x2="16" y2="530"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(1.16)} />
+      <text x="12" y="527" textAnchor="end"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(1.20)}>
+        50+ deals closed
+      </text>
+      <line x1="48" y1="550" x2="16" y2="558"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(1.20)} />
+      <text x="12" y="555" textAnchor="end"
+        fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886" style={fade(1.24)}>
+        ₹48K biggest sale
+      </text>
+      <line x1="72" y1="556" x2="44" y2="574"
+        stroke="#D8D5CC" strokeWidth="1" strokeDasharray="3 3" style={sub(1.24)} />
+      <text x="40" y="578" textAnchor="end"
+        fontFamily="var(--font-caveat)" fontSize="10" fill="#B8B5AB" style={fade(1.28)}>
+        432 hrs · 50+ IG stories · 7 reels
       </text>
     </svg>
   );
 }
-
-const STATS = [
-  { num: "4",    label: "companies"  },
-  { num: "15",   label: "projects"   },
-  { num: "₹6L",  label: "in sales"   },
-  { num: "228",  label: "outreaches" },
-];
 
 export default function Hero() {
   return (
@@ -216,21 +278,19 @@ export default function Hero() {
     >
       {/* Dot grid */}
       <div className="absolute inset-0 dot-grid pointer-events-none" style={{ opacity: 0.28 }} />
-      {/* Fade out toward bottom */}
+      {/* Bottom fade */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ background: "linear-gradient(to bottom, transparent 50%, #FAFAF8 88%)" }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-14 pt-28 pb-16 w-full">
-
-        {/* ── Two-column ── */}
-        <div className="grid md:grid-cols-[1fr_560px] gap-10 md:gap-6 items-center">
+        <div className="grid md:grid-cols-[1fr_580px] gap-8 md:gap-4 items-center">
 
           {/* LEFT */}
           <div className="order-2 md:order-1">
 
-            {/* Small label */}
+            {/* Label */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -241,79 +301,43 @@ export default function Hero() {
               <span className="label-accent">Body of Work — Shardul Gupta</span>
             </motion.div>
 
-            {/* ── Headline ── */}
-            <div className="overflow-hidden mb-2">
-              <motion.h1
-                initial={{ y: "110%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.75, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display font-semibold text-ink leading-[1.05]"
-                style={{ fontSize: "clamp(3rem, 6.5vw, 5.5rem)" }}
-              >
-                Business student
-              </motion.h1>
-            </div>
-            <div className="overflow-hidden mb-2">
-              <motion.h1
-                initial={{ y: "110%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.75, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display font-semibold text-ink leading-[1.05]"
-                style={{ fontSize: "clamp(3rem, 6.5vw, 5.5rem)" }}
-              >
-                by title.
-              </motion.h1>
-            </div>
-            <div className="overflow-hidden mb-10">
-              <motion.h1
-                initial={{ y: "110%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.75, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display font-semibold leading-[1.05]"
-                style={{ fontSize: "clamp(3rem, 6.5vw, 5.5rem)" }}
-              >
-                <span className="highlight-yellow">Operator by practice.</span>
-              </motion.h1>
-            </div>
+            {/* ── Title ── */}
+            {["Figuring out", "how to figure", "things out."].map((line, i) => (
+              <div key={i} className="overflow-hidden">
+                <motion.h1
+                  initial={{ y: "110%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.75, delay: 0.18 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className={`font-display font-semibold leading-[1.06] ${i === 2 ? "mb-9" : "mb-0"}`}
+                  style={{ fontSize: "clamp(2.6rem, 5.8vw, 5rem)" }}
+                >
+                  {i === 2 ? (
+                    <span className="highlight-yellow">things out.</span>
+                  ) : (
+                    <span className="text-ink">{line}</span>
+                  )}
+                </motion.h1>
+              </div>
+            ))}
 
-            {/* Bio */}
+            {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.55 }}
+              transition={{ duration: 0.5, delay: 0.58 }}
               className="text-ink-muted text-base leading-relaxed max-w-md mb-10"
             >
-              Business student who skips the classroom and goes straight to the company.
-              Sold sneakers, interviewed 73 farmers, built B2B pipelines from scratch,
-              walked into boardrooms with findings that changed decisions.
+              I&apos;m a growth-obsessed student working on real business problems across
+              sales, messaging, and marketing. My work has spanned retail, mini-startups,
+              running B2B pipelines, and building apps &amp; websites with AI. I focus on
+              figuring things out and making them work.
             </motion.p>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-              className="grid grid-cols-4 gap-3 mb-10 max-w-xs"
-            >
-              {STATS.map((s, i) => (
-                <motion.div
-                  key={s.label}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.75 + i * 0.07 }}
-                  className="text-center border border-line bg-surface py-3 px-1"
-                >
-                  <div className="font-sketch text-3xl text-ink leading-none">{s.num}</div>
-                  <div className="label mt-1">{s.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
 
             {/* CTAs */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.95 }}
+              transition={{ delay: 0.78 }}
               className="flex flex-wrap gap-3"
             >
               <a
@@ -335,7 +359,7 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
+              transition={{ delay: 1.1 }}
               className="font-sketch text-base text-ink-faint mt-6"
             >
               research → sales → strategy → execution ↓
@@ -345,10 +369,10 @@ export default function Hero() {
           {/* RIGHT — Work map */}
           <motion.div
             className="order-1 md:order-2 w-full"
-            style={{ minHeight: 400 }}
+            style={{ minHeight: 480 }}
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.12 }}
           >
             <WorkMap />
           </motion.div>
@@ -359,7 +383,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        transition={{ delay: 1.4 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
       >
         <motion.div

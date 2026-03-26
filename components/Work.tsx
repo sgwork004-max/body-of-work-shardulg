@@ -49,10 +49,14 @@ function WorkRow({ item, index }: { item: WorkItem; index: number }) {
           <div className="bg-paper p-5 md:p-6 flex flex-col justify-between">
             <div>
               <span className="label-accent block mb-2">{item.role}</span>
-              <h3 className="font-display font-medium text-lg text-ink mb-2 leading-snug group-hover:text-ink transition-colors duration-200">
+              <h3 className="font-display font-medium text-lg text-ink mb-3 leading-snug group-hover:text-ink transition-colors duration-200">
                 <span className="highlight-yellow">{item.tagline}</span>
               </h3>
-              <p className="text-ink-muted text-sm leading-relaxed max-w-lg">{item.summary}</p>
+              {item.highlight && (
+                <p className="font-sketch text-base text-ink leading-snug">
+                  {item.highlight}
+                </p>
+              )}
             </div>
             <div className="flex items-center justify-between mt-4">
               <div className="flex flex-wrap gap-1.5">
@@ -159,9 +163,9 @@ export default function Work() {
           <div className="mb-12">
             <span className="label-accent block mb-3">Apprenticeships</span>
             <h2 className="font-display font-medium text-fluid text-ink mb-2 leading-tight">
-              I don&apos;t study companies.
+              Four companies.
               <br />
-              <span className="highlight-yellow">I work in them.</span>
+              Four different challenges.
             </h2>
             <p className="font-sketch text-base text-ink-muted">
               click any card to read the full story ↓

@@ -59,7 +59,7 @@ function ProjectCard({
                 <DomainTag key={d} label={d} />
               ))}
               {project.hours && (
-                <span className="label text-ink-faint">{project.hours}</span>
+                <span className="label px-2 py-0.5 bg-surface border border-line text-ink-faint">{project.hours}</span>
               )}
             </div>
             <motion.button
@@ -179,9 +179,9 @@ export default function Projects() {
           <div className="mb-12">
             <span className="label-accent block mb-3">Selected Projects</span>
             <h2 className="font-display font-medium text-fluid text-ink leading-tight mb-2">
-              Not case studies.
+              Projects that made it
               <br />
-              <span className="highlight-yellow">Real briefs from real companies.</span>
+              <span className="highlight-yellow">out of my head.</span>
             </h2>
             <p className="font-sketch text-base text-ink-muted">
               click any to see the full story ↓
