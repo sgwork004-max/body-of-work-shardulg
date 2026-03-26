@@ -328,9 +328,8 @@ export default function Hero() {
               className="text-ink-muted text-base leading-relaxed max-w-md mb-10"
             >
               I&apos;m a growth-obsessed student working on real business problems across
-              sales, messaging, and marketing. My work has spanned retail, mini-startups,
-              running B2B pipelines, and building apps &amp; websites with AI. I focus on
-              figuring things out and making them work.
+              sales, messaging, and marketing.<br/> My work has spanned retail, client projects,
+              running B2B pipelines, building apps &amp; sites, etc.
             </motion.p>
 
             {/* CTAs */}
