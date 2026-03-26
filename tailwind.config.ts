@@ -12,14 +12,14 @@ const config: Config = {
         paper:          "#FAFAF8",   // main page background
         surface:        "#F5F4F0",   // card/section background
         "surface-alt":  "#EEECEA",   // slightly darker surface
-        line:           "#E5E3DC",   // borders
-        "line-dark":    "#C8C5BC",   // pencil sketch lines
-        ink:            "#1A1A1A",   // primary text
-        "ink-muted":    "#6B6860",   // secondary text
-        "ink-faint":    "#AAAAAA",   // very faint / labels
+        line:           "#D8D5CC",   // borders — slightly darker for contrast
+        "line-dark":    "#B8B5AB",   // pencil sketch lines
+        ink:            "#111111",   // primary text — richer black
+        "ink-muted":    "#524F4B",   // secondary text — more readable
+        "ink-faint":    "#8A8886",   // very faint / labels
         yellow:         "#FFE141",   // diagram fill / accent
         "yellow-soft":  "#FFFCE0",   // very light yellow bg tint
-        pencil:         "#C8C5BC",   // for hand-drawn lines
+        pencil:         "#B8B5AB",   // for hand-drawn lines
       },
       fontFamily: {
         display: ["var(--font-space)", "system-ui", "sans-serif"],

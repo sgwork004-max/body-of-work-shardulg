@@ -3,8 +3,8 @@
 export const META = {
   name: "Shardul Gupta",
   tagline: "I show up, figure it out, and make things move.",
-  email: "shardul@example.com",       // ← update
-  linkedin: "https://linkedin.com/in/shardul-gupta", // ← update
+  email: "sg.work004@gmail.com",
+  linkedin: "https://www.linkedin.com/in/shardul-gupta-101896186/",
   notionPortfolio:
     "https://shardulgupta.notion.site/Body-Of-Work-Shardul-Gupta-1c29c6509142804f8331c7ac8400564b",
 };

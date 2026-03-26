@@ -30,106 +30,87 @@ function JourneyTimeline() {
     transition: `opacity 0.4s ease ${delay}s`,
   });
 
+  // Wider viewBox (840) so Stahl and YelloSKYE have breathing room
   const STOPS = [
-    { x: 60,  label: "Hide & Sneak", sub: "Retail sales", year: "2024", note: "₹6L" },
-    { x: 210, label: "KOEL",         sub: "Field research", year: "2024", note: "73 interviews" },
-    { x: 370, label: "Therefore",    sub: "BD & Strategy",  year: "2025", note: "12+ meetings" },
-    { x: 520, label: "Rayden",       sub: "B2B Outreach",   year: "2025", note: "228 outreaches" },
-    { x: 640, label: "Stahl",        sub: "Multi-domain",   year: "2025", note: "5 domains" },
+    { x: 75,  label: "Hide & Sneak", note: "₹6L sales",       above: true  },
+    { x: 220, label: "KOEL",         note: "73 interviews",    above: false },
+    { x: 380, label: "Therefore",    note: "12+ meetings",     above: true  },
+    { x: 530, label: "Rayden",       note: "228 outreaches",   above: false },
+    { x: 650, label: "Stahl",        note: "5 domains",        above: true  },
+    { x: 775, label: "YelloSKYE",    note: "current ●",        above: false },
   ];
 
   return (
     <svg
       ref={ref}
-      viewBox="0 0 720 120"
+      viewBox="0 0 840 130"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="w-full"
       style={{ overflow: "visible" }}
     >
-      {/* Base timeline line */}
-      <line x1="40" y1="52" x2="695" y2="52" stroke="#E5E3DC" strokeWidth="1.5" />
-
+      {/* Base track */}
+      <line x1="45" y1="58" x2="815" y2="58" stroke="#D8D5CC" strokeWidth="1.5" />
       {/* Animated drawn line */}
-      <line x1="40" y1="52" x2="695" y2="52"
-        stroke="#C8C5BC" strokeWidth="2" strokeLinecap="round"
+      <line x1="45" y1="58" x2="815" y2="58"
+        stroke="#B8B5AB" strokeWidth="2" strokeLinecap="round"
         style={lineStyle} />
+      {/* Arrow */}
+      <path d="M 808 53 L 818 58 L 808 63"
+        stroke="#B8B5AB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+        style={dot(1.4)} />
+      <text x="822" y="62" fontFamily="var(--font-caveat)" fontSize="13" fill="#8A8886"
+        style={dot(1.5)}>now</text>
 
-      {/* Arrow at end */}
-      <path d="M 688 47 L 698 52 L 688 57"
-        stroke="#C8C5BC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-        style={dot(1.2)} />
-
-      {/* "now" label */}
-      <text x="700" y="56" fontFamily="var(--font-caveat)" fontSize="12" fill="#AAAAAA"
-        style={dot(1.3)}>now</text>
-
-      {/* Start marker */}
-      <text x="20" y="56" fontFamily="var(--font-caveat)" fontSize="12" fill="#AAAAAA"
-        style={dot(0.3)}>2023</text>
+      {/* Start circle + 2023 label */}
+      <circle cx={45} cy={58} r={4} fill="#FAFAF8" stroke="#B8B5AB" strokeWidth="1.5"
+        style={dot(0.2)} />
+      <text x="45" y="80" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="12" fill="#8A8886"
+        style={dot(0.25)}>2023</text>
 
       {/* Company stops */}
       {STOPS.map((s, i) => (
         <g key={s.label}>
-          {/* Dot */}
-          <circle cx={s.x} cy={52} r={5}
+          <circle cx={s.x} cy={58} r={i === STOPS.length - 1 ? 7 : 5}
             fill={i === STOPS.length - 1 ? "#FFE141" : "#FAFAF8"}
-            stroke="#C8C5BC" strokeWidth="1.5"
-            style={dot(0.5 + i * 0.18)} />
+            stroke="#B8B5AB" strokeWidth="1.5"
+            style={dot(0.45 + i * 0.17)} />
 
-          {/* Label above (alternating) */}
-          {i % 2 === 0 ? (
+          {s.above ? (
             <>
-              <text x={s.x} y={32} textAnchor="middle"
-                fontFamily="var(--font-caveat)" fontSize="14" fontWeight="600" fill="#1A1A1A"
-                style={dot(0.6 + i * 0.18)}>
+              <line x1={s.x} y1={44} x2={s.x} y2={52}
+                stroke="#D8D5CC" strokeWidth="1" style={dot(0.5 + i * 0.17)} />
+              <text x={s.x} y={36} textAnchor="middle"
+                fontFamily="var(--font-caveat)" fontSize="14" fontWeight="600" fill="#111111"
+                style={dot(0.55 + i * 0.17)}>
                 {s.label}
               </text>
-              <text x={s.x} y={16} textAnchor="middle"
-                fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA"
-                style={dot(0.7 + i * 0.18)}>
+              <text x={s.x} y={20} textAnchor="middle"
+                fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886"
+                style={dot(0.65 + i * 0.17)}>
                 {s.note}
               </text>
-              <line x1={s.x} y1={36} x2={s.x} y2={46}
-                stroke="#E5E3DC" strokeWidth="1" style={dot(0.65 + i * 0.18)} />
             </>
           ) : (
             <>
-              <text x={s.x} y={76} textAnchor="middle"
-                fontFamily="var(--font-caveat)" fontSize="14" fontWeight="600" fill="#1A1A1A"
-                style={dot(0.6 + i * 0.18)}>
+              <line x1={s.x} y1={64} x2={s.x} y2={75}
+                stroke="#D8D5CC" strokeWidth="1" style={dot(0.5 + i * 0.17)} />
+              <text x={s.x} y={87} textAnchor="middle"
+                fontFamily="var(--font-caveat)" fontSize="14" fontWeight="600" fill="#111111"
+                style={dot(0.55 + i * 0.17)}>
                 {s.label}
               </text>
-              <text x={s.x} y={92} textAnchor="middle"
-                fontFamily="var(--font-caveat)" fontSize="11" fill="#AAAAAA"
-                style={dot(0.7 + i * 0.18)}>
+              <text x={s.x} y={103} textAnchor="middle"
+                fontFamily="var(--font-caveat)" fontSize="11" fill="#8A8886"
+                style={dot(0.65 + i * 0.17)}>
                 {s.note}
               </text>
-              <line x1={s.x} y1={58} x2={s.x} y2={68}
-                stroke="#E5E3DC" strokeWidth="1" style={dot(0.65 + i * 0.18)} />
             </>
           )}
         </g>
       ))}
 
-      {/* YelloSKYE — current, at end */}
-      <g>
-        <circle cx={680} cy={52} r={6}
-          fill="#FFE141" stroke="#C8C5BC" strokeWidth="1.5"
-          style={dot(1.4)} />
-        <text x={680} y={32} textAnchor="middle"
-          fontFamily="var(--font-caveat)" fontSize="14" fontWeight="600" fill="#1A1A1A"
-          style={dot(1.45)}>
-          YelloSKYE
-        </text>
-        <text x={680} y={16} textAnchor="middle"
-          fontFamily="var(--font-caveat)" fontSize="11" fill="#C8C5BC"
-          style={dot(1.5)}>
-          current ●
-        </text>
-        <line x1={680} y1={36} x2={680} y2={46}
-          stroke="#E5E3DC" strokeWidth="1" style={dot(1.42)} />
-      </g>
     </svg>
   );
 }

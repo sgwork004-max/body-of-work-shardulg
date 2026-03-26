@@ -92,19 +92,26 @@ function ProjectCard({
                   {/* Overview */}
                   <p className="text-ink text-sm leading-relaxed max-w-2xl">{project.overview}</p>
 
-                  {/* Highlights */}
+                  {/* Highlights — vertical step flow */}
                   <div>
-                    <span className="font-sketch text-sm text-ink-muted block mb-3">what actually happened —</span>
-                    <ul className="grid md:grid-cols-2 gap-2">
+                    <span className="font-sketch text-sm text-ink-muted block mb-4">what actually happened, in order —</span>
+                    <ol className="space-y-0">
                       {project.highlights.map((h, i) => (
-                        <li key={i} className="flex gap-2 text-sm text-ink leading-relaxed">
-                          <span className="flex-shrink-0 w-5 h-5 bg-yellow text-ink text-2xs flex items-center justify-center font-bold mt-0.5">
-                            {i + 1}
-                          </span>
-                          {h}
+                        <li key={i} className="flex gap-4">
+                          {/* Step indicator + connecting line */}
+                          <div className="flex flex-col items-center flex-shrink-0">
+                            <span className="w-6 h-6 bg-yellow text-ink text-xs font-bold flex items-center justify-center rounded-none leading-none">
+                              {i + 1}
+                            </span>
+                            {i < project.highlights.length - 1 && (
+                              <div className="w-px flex-1 bg-line min-h-[16px]" />
+                            )}
+                          </div>
+                          {/* Text */}
+                          <p className="text-sm text-ink leading-relaxed pb-4 last:pb-0 pt-0.5">{h}</p>
                         </li>
                       ))}
-                    </ul>
+                    </ol>
                   </div>
 
                   {/* Timeline */}
@@ -172,9 +179,9 @@ export default function Projects() {
           <div className="mb-12">
             <span className="label-accent block mb-3">Selected Projects</span>
             <h2 className="font-display font-medium text-fluid text-ink leading-tight mb-2">
-              Fifteen projects.
+              Not case studies.
               <br />
-              Five worth dwelling on.
+              <span className="highlight-yellow">Real briefs from real companies.</span>
             </h2>
             <p className="font-sketch text-base text-ink-muted">
               click any to see the full story ↓

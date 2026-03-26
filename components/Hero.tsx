@@ -202,10 +202,10 @@ function WorkMap() {
 }
 
 const STATS = [
-  { num: "4",    label: "companies" },
-  { num: "15",   label: "projects"  },
-  { num: "500+", label: "hours"     },
-  { num: "73",   label: "interviews"},
+  { num: "4",    label: "companies"  },
+  { num: "15",   label: "projects"   },
+  { num: "₹6L",  label: "in sales"   },
+  { num: "228",  label: "outreaches" },
 ];
 
 export default function Hero() {
@@ -241,7 +241,7 @@ export default function Hero() {
               <span className="label-accent">Body of Work — Shardul Gupta</span>
             </motion.div>
 
-            {/* ── Headline — minimal, accurate ── */}
+            {/* ── Headline ── */}
             <div className="overflow-hidden mb-2">
               <motion.h1
                 initial={{ y: "110%", opacity: 0 }}
@@ -250,18 +250,29 @@ export default function Hero() {
                 className="font-display font-semibold text-ink leading-[1.05]"
                 style={{ fontSize: "clamp(3rem, 6.5vw, 5.5rem)" }}
               >
-                Real work.
+                Business student
+              </motion.h1>
+            </div>
+            <div className="overflow-hidden mb-2">
+              <motion.h1
+                initial={{ y: "110%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.75, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                className="font-display font-semibold text-ink leading-[1.05]"
+                style={{ fontSize: "clamp(3rem, 6.5vw, 5.5rem)" }}
+              >
+                by title.
               </motion.h1>
             </div>
             <div className="overflow-hidden mb-10">
               <motion.h1
                 initial={{ y: "110%", opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.75, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.75, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
                 className="font-display font-semibold leading-[1.05]"
                 style={{ fontSize: "clamp(3rem, 6.5vw, 5.5rem)" }}
               >
-                <span className="highlight-yellow">Real companies.</span>
+                <span className="highlight-yellow">Operator by practice.</span>
               </motion.h1>
             </div>
 

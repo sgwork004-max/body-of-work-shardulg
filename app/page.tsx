@@ -15,25 +15,27 @@ export default function Home() {
       <Navigation />
       <Hero />
 
-      {/* ── WORK ─────────────────── */}
-      <Work />
-
-      {/* ── MARQUEE ──────────────── */}
+      {/* ── MARQUEE — between hero and work ── */}
       <div className="border-y border-line bg-surface py-4 overflow-hidden">
         <Marquee
           items={[
+            "₹6L in sales",
+            "228 cold outreaches",
+            "73 farmer interviews",
+            "5 cities, on the ground",
             "Presented to MDs",
             "Built from zero",
-            "On the ground",
-            "500 hours",
-            "73 interviews",
             "20+ qualified meetings",
             "Figure it out",
             "Ship it",
+            "500+ hours logged",
           ]}
           speed="slow"
         />
       </div>
+
+      {/* ── WORK ─────────────────── */}
+      <Work />
 
       {/* ── PROJECTS ─────────────── */}
       <Projects />

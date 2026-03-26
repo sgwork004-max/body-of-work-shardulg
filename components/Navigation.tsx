@@ -58,7 +58,7 @@ export default function Navigation() {
           {/* CTA + mobile toggle */}
           <div className="flex items-center gap-3">
             <a
-              href={`mailto:${META.email}`}
+              href="#contact"
               className="hidden md:inline-flex items-center gap-1.5 px-4 py-1.5 border border-line text-ink text-sm hover:bg-yellow hover:border-yellow transition-colors duration-200"
             >
               say hello

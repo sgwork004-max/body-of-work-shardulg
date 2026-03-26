@@ -159,9 +159,9 @@ export default function Work() {
           <div className="mb-12">
             <span className="label-accent block mb-3">Apprenticeships</span>
             <h2 className="font-display font-medium text-fluid text-ink mb-2 leading-tight">
-              Four companies.
+              I don&apos;t study companies.
               <br />
-              Four very different problems.
+              <span className="highlight-yellow">I work in them.</span>
             </h2>
             <p className="font-sketch text-base text-ink-muted">
               click any card to read the full story ↓
