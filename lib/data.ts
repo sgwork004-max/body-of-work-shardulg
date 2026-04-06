@@ -34,21 +34,34 @@ export const WORK: WorkItem[] = [
   {
     id: "yelloskye",
     company: "YelloSKYE",
-    role: "Business Apprentice",
-    duration: "2025 — Present",
+    role: "Founder's Office Intern",
+    duration: "Nov 2024 — Present",
     accent: "#C9A227",
-    tagline: "Currently building.",
+    tagline: "Brand, website, hiring, content — owned it all.",
     summary:
-      "The most recent engagement. Open-ended scope, weekly deliverables, and a bias toward making things happen.",
-    skills: ["Strategy", "Execution", "Documentation"],
+      "4.5 months inside a founder's office across strategy, brand communication, sales support, hiring, and operations. Not one workstream — all of them.",
+    skills: ["Brand Strategy", "Copywriting", "Hiring", "Content", "GTM", "Operations"],
     context:
-      "YelloSKYE is an ongoing apprenticeship — the most current engagement, actively in progress.",
-    problem: "Open-ended scope. Define the problem, own the process, ship the work.",
+      "YelloSKYE is a drone tech company. I joined as a Founder's Office intern with open-ended scope — no fixed lane, no single brief. The expectation was simple: identify what the business needs, own it, and ship it.",
+    problem:
+      "No brand messaging system. No structured website. No hiring process. No content flywheel. Multiple workstreams needed to be built from scratch, simultaneously, by one person.",
     approach:
-      "Weekly deliverables, documented thinking, and a bias toward making things happen rather than theorising about them.",
-    outcomes: ["In progress — the report is still being written."],
-    reflections: ["Current work. Still learning."],
-    highlight: "Current",
+      "Ran 6 parallel workstreams over 4.5 months: developed a Brand Messaging Framework from customer interviews and internal research, rebuilt the entire website from sitemap to copy, executed LinkedIn content strategy that generated the first inbound lead, screened ~80 candidates and contributed to 3 successful hires, supported client sales discussions and evaluated 10+ industry events, and built operational systems — hiring trackers, vendor sheets, expense trackers — to hold it all together.",
+    outcomes: [
+      "Delivered a Brand Messaging Framework — core narrative, positioning, and messaging themes — now used across website, LinkedIn, and sales",
+      "Rebuilt the website end-to-end: sitemap, structure, copy, layout, and design direction across Homepage, DEX Landing Page, and Land Survey Solutions Page",
+      "Published 6+ LinkedIn posts and a 2-month content calendar — generated the company's first inbound lead via LinkedIn",
+      "Screened ~80 candidates across video editor and accountant roles — contributed to 3 successful hires",
+      "Evaluated 10+ industry events and multiple PR agencies — supported GTM and cost-vs-value decisions",
+      "Built hiring trackers, vendor comparison sheets, marketing resource trackers, and expense trackers",
+      "Created newsletter structure, founder interview frameworks, and contributed to sales messaging and talking points",
+    ],
+    reflections: [
+      "Founder's office work is less about any one skill and more about figuring out what's actually needed — then building it.",
+      "Brand messaging isn't a document. It's the connective tissue between how a company thinks and how it communicates.",
+      "Hiring fast and hiring well are two different things. Good systems make it possible to do both.",
+    ],
+    highlight: "First inbound lead via LinkedIn. 3 hires. Website rebuilt from scratch.",
   },
   {
     id: "rayden",
