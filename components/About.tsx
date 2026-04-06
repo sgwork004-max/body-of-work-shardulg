@@ -119,14 +119,14 @@ function JourneyTimeline() {
    Skill cluster — visual tag grid
    ──────────────────────────────────────────────────────────── */
 const SKILL_CLUSTERS = [
-  { cluster: "Research",   tags: ["73 interviews", "On-ground fieldwork", "Insight synthesis", "1000+ data points"] },
-  { cluster: "Sales & BD", tags: ["228 cold outreaches", "₹6L retail sales", "ICP development", "20+ meetings closed"] },
-  { cluster: "Strategy",   tags: ["GTM planning", "Credential decks", "CLV mapping", "Legal risk review"] },
-  { cluster: "Execution",  tags: ["SOP design", "300+ lead database", "Handover docs", "Content & brand work"] },
+  { cluster: "Research",       tags: ["73 farmer interviews", "On-ground fieldwork", "Insight synthesis", "1000+ data points"] },
+  { cluster: "Sales & BD",     tags: ["228 cold outreaches", "₹6L retail sales", "ICP development", "20+ meetings closed"] },
+  { cluster: "Brand & Content",tags: ["Brand messaging framework", "Website end-to-end", "LinkedIn content", "First inbound lead"] },
+  { cluster: "Strategy & Ops", tags: ["GTM planning", "Hiring systems", "Vendor evaluation", "Credential decks"] },
 ];
 
 const FACTS = [
-  { label: "Currently",  value: "YelloSKYE — Business Apprentice" },
+  { label: "Currently",  value: "YelloSKYE — Founder's Office Intern" },
   { label: "Based in",   value: "Pune, India" },
   { label: "School",     value: "Let's Enterprise" },
   { label: "Writing at", value: "Conflexions + Medium" },

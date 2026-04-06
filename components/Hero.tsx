@@ -163,7 +163,7 @@ function WorkMap() {
       </text>
       <text x="630" y="160" textAnchor="middle"
         fontFamily="var(--font-caveat)" fontSize="10" fill="#B8B5AB" style={fade(0.68)}>
-        strategy · execution · documentation
+        brand · website · first inbound lead
       </text>
 
       {/* ════════════════════════════════
@@ -327,9 +327,9 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.58 }}
               className="text-ink-muted text-base leading-relaxed max-w-md mb-10"
             >
-              I&apos;m a growth-obsessed student working on real business problems across
-              sales, messaging, and marketing.<br/> My work has spanned retail, client projects,
-              running B2B pipelines, building apps &amp; sites, etc.
+              Four companies. Two years. Sales, brand, research, hiring, and GTM —
+              each one owned end-to-end.<br/> I walk into ambiguous problems and ship
+              outcomes.
             </motion.p>
 
             {/* CTAs */}
