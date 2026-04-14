@@ -177,11 +177,11 @@ export const FAILURES: FailureExhibit[] = [
     date: "December 2023",
     domain: "Team dynamics, communication",
     what_happened:
-      "Mid-project, the team split on who was still working on it. No one explicitly said "I'm out" — people just stopped showing up. One messy group chat message spiralled into a fight. The project nearly died not from a bad idea or a bad market, but from a sentence nobody wrote.",
+      "Mid-project, the team split on who was still working on it. No one explicitly said \"I'm out\" — people just stopped showing up. One messy group chat message spiralled into a fight. The project nearly died not from a bad idea or a bad market, but from a sentence nobody wrote.",
     the_damage:
       "Team morale collapsed at the worst possible moment — mid-campaign, with the event approaching. Time lost to conflict that could have been spent selling. Trust damaged within the team.",
     what_changed:
-      "Not "I learned to communicate better." Specifically: roles and ownership need to be written down and confirmed, not assumed in conversation. Verbal alignment dissolves. Written alignment persists. Now, any project with more than one person gets a shared doc with names against tasks before work starts.",
+      "Not \"I learned to communicate better.\" Specifically: roles and ownership need to be written down and confirmed, not assumed in conversation. Verbal alignment dissolves. Written alignment persists. Now, any project with more than one person gets a shared doc with names against tasks before work starts.",
   },
   {
     id: "two-tickets",
@@ -194,7 +194,7 @@ export const FAILURES: FailureExhibit[] = [
     the_damage:
       "Gut punch. Real one. Serious doubt about whether any of it had worked. The team was already fragile from the conflict in Exhibit 01.",
     what_changed:
-      "The event ended with 15 people — which means the last hour of sales was worth more than the previous 10 days combined. The lesson isn't "don't worry, it'll work out." The lesson is that conversion windows for events are extremely back-loaded. Most people decide at the last minute, and urgency is only real when the deadline is real. Two people at 10 AM is not a verdict. It's data. Treating it as a verdict would have made it one.",
+      "The event ended with 15 people — which means the last hour of sales was worth more than the previous 10 days combined. The lesson isn't \"don't worry, it'll work out.\" The lesson is that conversion windows for events are extremely back-loaded. Most people decide at the last minute, and urgency is only real when the deadline is real. Two people at 10 AM is not a verdict. It's data. Treating it as a verdict would have made it one.",
   },
   {
     id: "slide-everything",
@@ -233,7 +233,7 @@ export const FAILURES: FailureExhibit[] = [
     the_damage:
       "Information gaps that could have been closed in 30 seconds. Relationships that stayed surface-level because nobody pushed past the polite layer. Weaker insights than the situation allowed.",
     what_changed:
-      "No single fix — it's an ongoing exhibit. But the heuristic that works: if you're thinking the question and not asking it, that's the question to ask. The hesitation is signal, not wisdom. Also learned to ask about specific past behaviour rather than general dispositions — "what did you do last Tuesday?" surfaces truth; "what do you usually do?" surfaces aspiration.",
+      "No single fix — it's an ongoing exhibit. But the heuristic that works: if you're thinking the question and not asking it, that's the question to ask. The hesitation is signal, not wisdom. Also learned to ask about specific past behaviour rather than general dispositions — \"what did you do last Tuesday?\" surfaces truth; \"what do you usually do?\" surfaces aspiration.",
   },
 ];
 
