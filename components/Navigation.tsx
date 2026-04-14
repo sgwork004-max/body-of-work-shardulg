@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: "Thinking", href: "#thinking" },
   { label: "Writing",  href: "#writing" },
   { label: "About",    href: "#about" },
+  { label: "Failures", href: "#failures" },
 ];
 
 export default function Navigation() {

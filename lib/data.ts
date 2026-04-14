@@ -34,12 +34,12 @@ export const WORK: WorkItem[] = [
   {
     id: "yelloskye",
     company: "YelloSKYE",
-    role: "Founder's Office Intern",
-    duration: "Nov 2024 — Present",
+    role: "Founder's Office Apprentice",
+    duration: "Nov 2025 — Present",
     accent: "#C9A227",
-    tagline: "Brand, website, hiring, content — owned it all.",
+    tagline: "Building a branding & marketing stack, end-to-end",
     summary:
-      "4.5 months inside a founder's office across strategy, brand communication, sales support, hiring, and operations. Not one workstream — all of them.",
+      "4.5+ months inside a founder's office across strategy, brand communication, sales support, hiring, and operations. All of them, simultaneously.",
     skills: ["Brand Strategy", "Copywriting", "Hiring", "Content", "GTM", "Operations"],
     context:
       "YelloSKYE is a drone tech company. I joined as a Founder's Office intern with open-ended scope — no fixed lane, no single brief. The expectation was simple: identify what the business needs, own it, and ship it.",
@@ -61,13 +61,13 @@ export const WORK: WorkItem[] = [
       "Brand messaging isn't a document. It's the connective tissue between how a company thinks and how it communicates.",
       "Hiring fast and hiring well are two different things. Good systems make it possible to do both.",
     ],
-    highlight: "First inbound lead via LinkedIn. 3 hires. Website rebuilt from scratch.",
+    highlight: "Website rebuilt from scratch. First inbound lead via LinkedIn. 3 hires. ",
   },
   {
     id: "rayden",
     company: "Rayden Design Studio",
     role: "Business Development Apprentice",
-    duration: "2025",
+    duration: "May – July 2025",
     accent: "#C2692A",
     tagline: "Built a B2B sales machine from nothing.",
     summary:
@@ -153,6 +153,87 @@ export const WORK: WorkItem[] = [
       "The smallest inventory error can cascade into massive confusion. Precision matters.",
     ],
     highlight: "₹6L+ in sales",
+  },
+];
+
+// ─── MUSEUM OF FAILURES ──────────────────────────────────────────────────────
+
+export type FailureExhibit = {
+  id: string;
+  number: string;
+  title: string;
+  date: string;
+  domain: string;
+  what_happened: string;
+  the_damage: string;
+  what_changed: string;
+};
+
+export const FAILURES: FailureExhibit[] = [
+  {
+    id: "invisible-handoff",
+    number: "01",
+    title: "The Invisible Handoff",
+    date: "December 2023",
+    domain: "Team dynamics, communication",
+    what_happened:
+      "Mid-project, the team split on who was still working on it. No one explicitly said "I'm out" — people just stopped showing up. One messy group chat message spiralled into a fight. The project nearly died not from a bad idea or a bad market, but from a sentence nobody wrote.",
+    the_damage:
+      "Team morale collapsed at the worst possible moment — mid-campaign, with the event approaching. Time lost to conflict that could have been spent selling. Trust damaged within the team.",
+    what_changed:
+      "Not "I learned to communicate better." Specifically: roles and ownership need to be written down and confirmed, not assumed in conversation. Verbal alignment dissolves. Written alignment persists. Now, any project with more than one person gets a shared doc with names against tasks before work starts.",
+  },
+  {
+    id: "two-tickets",
+    number: "02",
+    title: "10 AM, Two Tickets",
+    date: "January 2024",
+    domain: "Sales, mental resilience",
+    what_happened:
+      "The event was at 11 AM. The venue was a 1,300 sq. ft. space we'd spent weeks selling and decorating. At 10 AM, two people had paid. Two. After weeks of 100+ messages, cold calls, email campaigns, and ground-level lead collection. Two tickets sold.",
+    the_damage:
+      "Gut punch. Real one. Serious doubt about whether any of it had worked. The team was already fragile from the conflict in Exhibit 01.",
+    what_changed:
+      "The event ended with 15 people — which means the last hour of sales was worth more than the previous 10 days combined. The lesson isn't "don't worry, it'll work out." The lesson is that conversion windows for events are extremely back-loaded. Most people decide at the last minute, and urgency is only real when the deadline is real. Two people at 10 AM is not a verdict. It's data. Treating it as a verdict would have made it one.",
+  },
+  {
+    id: "slide-everything",
+    number: "03",
+    title: "The Slide That Said Everything",
+    date: "January – February 2025",
+    domain: "Craft, presentations",
+    what_happened:
+      "The same mistake, three times in a row, across three weeks. Feedback after week one: the slides were trying to say too many things. Week two: same feedback. Week three: again. Instead of building each slide around one core message, the slides accumulated — a point here, a point there, a supporting thought, a caveat. Technically correct. Communicatively inert.",
+    the_damage:
+      "Three weeks of rework that could have been one week of getting it right. Slower trust-building in the early weeks of a new apprenticeship.",
+    what_changed:
+      "Before building any slide now, I write the core message as one sentence at the top of a blank page. If the slide can't be summarised in that sentence, the slide isn't ready. The sentence comes first. The content serves the sentence. This is non-negotiable. Also: the slides were bad because the thinking was incomplete, not because the design was poor. Understanding the concept fully comes before touching the tool.",
+  },
+  {
+    id: "week-one-therefore",
+    number: "04",
+    title: "Week One at Therefore",
+    date: "January 2025",
+    domain: "New environments, self-awareness",
+    what_happened:
+      "Week 1 at a new apprenticeship produced a list of failures worth looking at honestly: didn't know how to gel with the team, found it hard to approach seniors for approval or questions, missed deadlines on a key deliverable, got exhausted by the work hours. None of these were new problems — all of them were old patterns showing up in a new context. The difficulty approaching seniors was fear of judgment. The missed deadline was underestimating the gap between having ideas and executing on them. The exhaustion was not preparing for 9.5-hour days.",
+    the_damage:
+      "Slower start than was possible. Less trust built in the first week than the first week deserved.",
+    what_changed:
+      "Fear of bothering people is not politeness. It's a tax the other person pays in worse output. If I need to ask, I ask — fast and specific. Seniors in professional environments don't resent a clear question; they resent a slow or vague one. That distinction changed how I operate in every professional context since.",
+  },
+  {
+    id: "question-not-asked",
+    number: "05",
+    title: "The Question I Didn't Ask",
+    date: "Ongoing",
+    domain: "Research, outreach, missed opportunities",
+    what_happened:
+      "A pattern that repeats: in the room, in the conversation, with the person who has the answer — and the question doesn't get asked. Not because it was unknown. Because it felt too small, or too obvious, or too forward, or the moment passed. In field research across 73 interviews, in early weeks at a new workplace, in cold outreach — the best questions are always the ones that feel slightly too direct to say out loud.",
+    the_damage:
+      "Information gaps that could have been closed in 30 seconds. Relationships that stayed surface-level because nobody pushed past the polite layer. Weaker insights than the situation allowed.",
+    what_changed:
+      "No single fix — it's an ongoing exhibit. But the heuristic that works: if you're thinking the question and not asking it, that's the question to ask. The hesitation is signal, not wisdom. Also learned to ask about specific past behaviour rather than general dispositions — "what did you do last Tuesday?" surfaces truth; "what do you usually do?" surfaces aspiration.",
   },
 ];
 

@@ -5,6 +5,7 @@ import Projects from "@/components/Projects";
 import HowIThink from "@/components/HowIThink";
 import Writing from "@/components/Writing";
 import About from "@/components/About";
+import Failures from "@/components/Failures";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Marquee from "@/components/Marquee";
@@ -48,6 +49,9 @@ export default function Home() {
 
       {/* ── ABOUT ────────────────── */}
       <About />
+
+      {/* ── MUSEUM OF FAILURES ───── */}
+      <Failures />
 
       {/* ── CONTACT ──────────────── */}
       <Contact />
