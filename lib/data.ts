@@ -125,37 +125,6 @@ export const WORK: WorkItem[] = [
     highlight: "200+ reach-outs in 9 weeks · Pitch deck approved",
   },
   {
-    id: "koel",
-    company: "KOEL Research",
-    role: "Research & Strategy Intern",
-    duration: "Aug – Oct 2024",
-    hours: "500+ hrs",
-    accent: "#5C4A7A",
-    tagline: "73 interviews. 5 cities. Presented to the MD.",
-    summary:
-      "A 2.5-month ground-level research project for Kirloskar Oil Engines — electric pumps segment. 73 in-depth interviews across 5 cities, 1,000+ data points synthesised, findings presented to MD Gauri Kirloskar.",
-    skills: ["Qualitative Research", "Field Interviews", "Insight Synthesis", "Strategic Briefs", "Stakeholder Management"],
-    context:
-      "Kirloskar Oil Engines (KOEL) commissioned a customer and channel insights project for their electric pumps segment. The brief: understand who actually buys, who influences the decision, and what would move them — through direct fieldwork, not desk research.",
-    problem:
-      "KOEL had product data. They didn't have ground truth — what retailers actually told customers, what plumbers recommended, and why. The only way to find out was to go sit with them. 73 conversations across 5 cities.",
-    approach:
-      "Won the internal bid to lead the project. Built the research questionnaire (iterated 3+ times), conducted 73 in-depth interviews across retailers, distributors, and plumbers in Pune, Mumbai, Nagpur, and beyond. Manually transcribed and analysed every interview. Co-synthesised 1,000+ data points on Miro using 4Ps framework with an external consultant. Structured every insight as: Context → Observation → Insight → Supporting Data → Action Points. Presented final findings to MD Gauri Kirloskar and KOEL senior leadership.",
-    outcomes: [
-      "73 in-depth interviews across retailers, distributors, and plumbers in 5 cities",
-      "1,000+ data points synthesised on Miro using 4Ps framework",
-      "Full customer journey and channel partner dynamics mapped",
-      "Findings presented to MD Gauri Kirloskar and senior KOEL leadership",
-      "Recommendations fed into active discussions on retailer engagement and communication strategy",
-    ],
-    reflections: [
-      "Most people making decisions about customers have never actually sat with one. Fieldwork changes what you ask.",
-      "The gap between a data point and an insight is interpretation. That's where the real work happens.",
-      "73 conversations taught me more about listening than anything else — the question you don't ask often matters more.",
-    ],
-    highlight: "73 interviews → Presented to MD Gauri Kirloskar",
-  },
-  {
     id: "hide-and-sneak",
     company: "Hide & Sneak Store",
     role: "Sales & Brand Apprentice",

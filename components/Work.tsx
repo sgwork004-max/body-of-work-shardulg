@@ -96,65 +96,74 @@ function WorkRow({ item, index }: { item: WorkItem; index: number }) {
               transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
               className="overflow-hidden"
             >
-              <div className="bg-yellow-soft border-t border-line">
-                {/* Thin yellow accent line */}
+              <div className="border-t border-line">
+                {/* Thin yellow accent */}
                 <div className="h-0.5 bg-yellow" />
-                <div className="p-5 md:p-8 grid md:grid-cols-2 gap-8">
-                  {/* LEFT */}
-                  <div className="space-y-6">
-                    {[
-                      { label: "Context", text: item.context },
-                      { label: "The Problem", text: item.problem },
-                      { label: "The Approach", text: item.approach },
-                    ].map((block) => (
-                      <div key={block.label}>
-                        <span className="font-sketch text-sm text-ink-muted block mb-1">{block.label} —</span>
-                        <p className="text-ink text-sm leading-relaxed">{block.text}</p>
-                      </div>
-                    ))}
-                  </div>
 
-                  {/* RIGHT */}
-                  <div className="space-y-6">
+                {/* ── STATS BAR ── */}
+                {item.highlight && (
+                  <div className="flex flex-wrap gap-2 px-5 md:px-8 py-3.5 bg-yellow-soft border-b border-line">
+                    {item.highlight.split("·").map((stat, i) => (
+                      <span
+                        key={i}
+                        className="inline-flex items-center gap-1.5 font-mono text-[0.65rem] tracking-wide uppercase px-3 py-1.5 border border-line bg-paper text-ink"
+                      >
+                        <span className="text-yellow font-bold">→</span>
+                        {stat.trim()}
+                      </span>
+                    ))}
+                    {item.hours && (
+                      <span className="inline-flex items-center gap-1.5 font-mono text-[0.65rem] tracking-wide uppercase px-3 py-1.5 border border-line bg-paper text-ink-muted ml-auto">
+                        ⏱ {item.hours}
+                      </span>
+                    )}
+                  </div>
+                )}
+
+                {/* ── MAIN CONTENT ── */}
+                <div className="p-5 md:p-8 grid md:grid-cols-2 gap-6 bg-paper">
+
+                  {/* LEFT: Quick context + reflections */}
+                  <div className="space-y-5">
                     <div>
-                      <span className="font-sketch text-sm text-ink-muted block mb-2">What came out of it —</span>
-                      <ul className="space-y-2">
-                        {item.outcomes.map((o, i) => (
-                          <li key={i} className="flex gap-2 text-sm text-ink leading-relaxed">
-                            <span className="flex-shrink-0 text-yellow font-bold mt-0.5">→</span>
-                            {o}
-                          </li>
-                        ))}
-                      </ul>
+                      <span className="font-sketch text-sm text-ink-faint block mb-2">The situation —</span>
+                      <p className="text-ink text-sm leading-relaxed">{item.summary}</p>
                     </div>
                     <div>
-                      <span className="font-sketch text-sm text-ink-muted block mb-2">Reflections —</span>
-                      <ul className="space-y-1.5">
+                      <span className="font-sketch text-sm text-ink-faint block mb-2">What I took away —</span>
+                      <ul className="space-y-2">
                         {item.reflections.map((r, i) => (
                           <li key={i} className="text-sm text-ink-muted leading-relaxed italic flex gap-2">
-                            <span className="not-italic text-ink-faint flex-shrink-0">◦</span>
+                            <span className="not-italic text-ink-faint flex-shrink-0 mt-0.5">◦</span>
                             {r}
                           </li>
                         ))}
                       </ul>
                     </div>
-                    {item.hours && (
-                      <div>
-                        <span className="font-sketch text-sm text-ink-muted block mb-1">Time in —</span>
-                        <span className="font-sketch text-2xl text-ink">{item.hours}</span>
-                      </div>
-                    )}
+                  </div>
+
+                  {/* RIGHT: Outcomes + skills */}
+                  <div className="space-y-5">
                     <div>
-                      <span className="label block mb-2">Skills</span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {item.skills.map((s) => (
-                          <span key={s} className="label px-2 py-0.5 border border-line bg-paper">
-                            {s}
-                          </span>
+                      <span className="font-sketch text-sm text-ink-faint block mb-2">What shipped —</span>
+                      <ul className="space-y-2">
+                        {item.outcomes.map((o, i) => (
+                          <li key={i} className="flex gap-2 text-sm text-ink leading-relaxed">
+                            <span className="flex-shrink-0 font-bold text-yellow mt-0.5">→</span>
+                            {o}
+                          </li>
                         ))}
-                      </div>
+                      </ul>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {item.skills.map((s) => (
+                        <span key={s} className="label px-2 py-0.5 border border-line bg-surface">
+                          {s}
+                        </span>
+                      ))}
                     </div>
                   </div>
+
                 </div>
               </div>
             </motion.div>
@@ -173,9 +182,9 @@ export default function Work() {
           <div className="mb-12">
             <span className="label-accent block mb-3">Apprenticeships</span>
             <h2 className="font-display font-medium text-fluid text-ink mb-2 leading-tight">
-              Five engagements.
+              Four engagements.
               <br />
-              Five different problems.
+              Four different problems.
             </h2>
             <p className="font-sketch text-base text-ink-muted">
               click any card to read the full story ↓

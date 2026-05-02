@@ -56,11 +56,11 @@ export default function Home() {
       {/* ── MUSEUM OF FAILURES ───── */}
       <Failures />
 
-      {/* ── DARK MODE TOGGLE ─────── */}
-      <DarkModeToggle />
-
       {/* ── CONTACT ──────────────── */}
       <Contact />
+
+      {/* ── DARK MODE TOGGLE ─────── */}
+      <DarkModeToggle />
 
       {/* ── FOOTER ───────────────── */}
       <Footer />

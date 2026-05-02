@@ -146,12 +146,12 @@ export default function About() {
         <FadeIn>
           <span className="label-accent block mb-4">The person behind the work</span>
           <h2 className="font-display font-medium text-fluid text-ink leading-tight mb-3">
-            Not a resume.
+            I don&apos;t study industries.
             <br />
-            A way of <span className="highlight-yellow">working.</span>
+            I <span className="highlight-yellow">work in them.</span>
           </h2>
           <p className="font-sketch text-lg text-ink-muted max-w-xl mb-12">
-            Two years. Four companies. Industries I had no business being in. Figured it out each time.
+            Five companies. Two years. Every single role owned end-to-end. No hand-holding, no theory — just the work.
           </p>
         </FadeIn>
 
@@ -255,27 +255,19 @@ export default function About() {
                 </div>
               </div>
 
-              {/* What I'm not */}
-              <div className="border border-line bg-yellow-soft p-5">
-                <p className="label-accent mb-3">what this isn&apos;t</p>
-                <ul className="space-y-2.5">
+              {/* How I work */}
+              <div className="border border-line bg-surface p-5">
+                <p className="label-accent mb-4">how I operate</p>
+                <ul className="space-y-4">
                   {[
-                    "Not classroom projects",
-                    "Not internship-level tasks",
-                    "Not theory applied to case studies",
-                    "Real companies, real stakes, real outcomes",
+                    { icon: "→", text: "Own the outcome, not just the task — I care about what ships, not what was assigned." },
+                    { icon: "→", text: "Move fast on ambiguity — unclear brief is a starting point, not a blocker." },
+                    { icon: "→", text: "Communicate in writing — if it isn't documented, it didn't happen." },
+                    { icon: "→", text: "Build systems, not one-offs — everything I make should outlast me." },
                   ].map((item, i) => (
-                    <li key={i} className="flex gap-2 items-start">
-                      <span className="text-ink-faint text-xs mt-1 shrink-0">
-                        {i < 3 ? "✕" : "→"}
-                      </span>
-                      <span
-                        className={`font-sketch text-base leading-snug ${
-                          i < 3 ? "text-ink-faint line-through decoration-line-dark" : "text-ink font-medium"
-                        }`}
-                      >
-                        {item}
-                      </span>
+                    <li key={i} className="flex gap-3 items-start">
+                      <span className="text-yellow font-bold shrink-0 mt-0.5">{item.icon}</span>
+                      <span className="font-sketch text-base text-ink-muted leading-snug">{item.text}</span>
                     </li>
                   ))}
                 </ul>

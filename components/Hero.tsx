@@ -22,49 +22,48 @@ interface MapNode {
   isProject?: boolean;
 }
 
-// ViewBox: 920 × 600  Centre: (460, 300)
+// ViewBox: 1100 × 680  Centre: (550, 340)
 const NODES: MapNode[] = [
   {
     id: "yelloskye", label: "YelloSKYE", role: "Founder's Office",
-    stat: "current ●", cx: 700, cy: 95, w: 162, h: 58,
+    stat: "current ●", cx: 845, cy: 95, w: 178, h: 65,
     target: "work-yelloskye", isCurrent: true,
   },
   {
     id: "koel", label: "KOEL Research", role: "Research & Strategy",
-    stat: "73 interviews · 5 cities", cx: 295, cy: 70, w: 168, h: 58,
-    target: "work-koel",
+    stat: "73 interviews · 5 cities", cx: 295, cy: 80, w: 178, h: 65,
+    target: "projects", isProject: true,
   },
   {
     id: "therefore", label: "Therefore Design", role: "Business Dev",
-    stat: "200+ reach-outs", cx: 85, cy: 228, w: 162, h: 58,
+    stat: "200+ reach-outs", cx: 80, cy: 262, w: 172, h: 65,
     target: "work-therefore",
   },
   {
     id: "rayden", label: "Rayden Design", role: "Business Dev",
-    stat: "228 outreaches", cx: 790, cy: 315, w: 156, h: 58,
+    stat: "228 outreaches", cx: 968, cy: 335, w: 164, h: 65,
     target: "work-rayden",
   },
   {
     id: "hide-and-sneak", label: "Hide & Sneak", role: "Sales & Retail",
-    stat: "₹6L in sales", cx: 108, cy: 505, w: 156, h: 58,
+    stat: "₹6L in sales", cx: 118, cy: 565, w: 164, h: 65,
     target: "work-hide-and-sneak",
   },
   {
     id: "projects", label: "Projects", role: "10+ sprints",
-    stat: "500+ hours", cx: 665, cy: 510, w: 140, h: 58,
+    stat: "500+ hours", cx: 840, cy: 570, w: 150, h: 65,
     target: "projects", isProject: true,
   },
 ];
 
 // Cubic bezier paths from center oval to each node
-// Computed to exit/enter near node boundaries
 const PATHS: Record<string, string> = {
-  yelloskye:       "M 506 278 C 570 210 635 148 622 124",
-  koel:            "M 406 270 C 370 200 338 140 295 99",
-  therefore:       "M 395 290 C 300 272 210 254 166 228",
-  rayden:          "M 518 302 C 612 305 680 310 712 315",
-  "hide-and-sneak":"M 398 314 C 318 400 218 468 186 505",
-  projects:        "M 478 318 C 530 405 608 472 595 510",
+  yelloskye:        "M 622 316 C 700 240 770 165 756 128",
+  koel:             "M 484 316 C 428 228 372 155 384 113",
+  therefore:        "M 462 336 C 360 314 242 280 166 262",
+  rayden:           "M 638 342 C 742 340 858 337 886 335",
+  "hide-and-sneak": "M 474 370 C 378 452 248 526 200 562",
+  projects:         "M 622 370 C 714 456 800 538 765 553",
 };
 
 function WorkMap() {
@@ -103,7 +102,7 @@ function WorkMap() {
 
   return (
     <svg
-      viewBox="0 0 920 600"
+      viewBox="0 0 1100 680"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="w-full h-full"
@@ -111,7 +110,7 @@ function WorkMap() {
       aria-label="Shardul's body of work — click any node to explore"
     >
       {/* ── Outer decorative ring ── */}
-      <ellipse cx="460" cy="300" rx="175" ry="148"
+      <ellipse cx="550" cy="340" rx="195" ry="160"
         stroke="rgb(var(--color-line))" strokeWidth="1" strokeDasharray="6 8"
         fill="none" style={fade(0.1)} />
 
@@ -133,17 +132,17 @@ function WorkMap() {
       ))}
 
       {/* ── Centre node ── */}
-      <ellipse cx="460" cy="300" rx="75" ry="36"
+      <ellipse cx="550" cy="340" rx="88" ry="42"
         fill="rgb(var(--color-yellow))" fillOpacity="0.9"
         stroke="rgb(var(--color-line-dark))" strokeWidth="1.5"
         style={fade(0.05)} />
-      <text x="460" y="295" textAnchor="middle"
-        fontFamily="var(--font-space)" fontSize="20" fontWeight="700"
+      <text x="550" y="334" textAnchor="middle"
+        fontFamily="var(--font-space)" fontSize="22" fontWeight="700"
         fill="rgb(var(--color-ink))" style={fade(0.1)}>
         Shardul
       </text>
-      <text x="460" y="314" textAnchor="middle"
-        fontFamily="var(--font-caveat)" fontSize="13"
+      <text x="550" y="354" textAnchor="middle"
+        fontFamily="var(--font-caveat)" fontSize="14"
         fill="rgb(var(--color-ink-muted))" style={fade(0.15)}>
         body of work
       </text>
@@ -265,7 +264,7 @@ function WorkMap() {
 
       {/* ── "click to explore" hint ── */}
       <text
-        x="460" y="575"
+        x="550" y="660"
         textAnchor="middle"
         fontFamily="var(--font-caveat)"
         fontSize="14"
@@ -296,7 +295,7 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-14 pt-28 pb-16 w-full">
-        <div className="grid md:grid-cols-[1fr_600px] gap-8 md:gap-4 items-center">
+        <div className="grid md:grid-cols-[360px_1fr] gap-6 md:gap-8 items-center">
 
           {/* LEFT */}
           <div className="order-2 md:order-1">
@@ -377,7 +376,7 @@ export default function Hero() {
           {/* RIGHT — Interactive mind map */}
           <motion.div
             className="order-1 md:order-2 w-full"
-            style={{ minHeight: 560 }}
+            style={{ minHeight: 640 }}
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.12 }}
