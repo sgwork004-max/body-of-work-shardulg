@@ -6,6 +6,7 @@ import HowIThink from "@/components/HowIThink";
 import Writing from "@/components/Writing";
 import About from "@/components/About";
 import Failures from "@/components/Failures";
+import DarkModeToggle from "@/components/DarkModeToggle";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Marquee from "@/components/Marquee";
@@ -22,14 +23,16 @@ export default function Home() {
           items={[
             "₹6L in sales",
             "228 cold outreaches",
-            "73 farmer interviews",
-            "5 cities, on the ground",
-            "Presented to MDs",
-            "Built from zero",
+            "73 interviews · 5 cities",
+            "Presented to MD Gauri Kirloskar",
+            "First inbound lead via LinkedIn",
+            "3 hires contributed",
             "20+ qualified meetings",
-            "Figure it out",
-            "Ship it",
-            "500+ hours logged",
+            "MIS automated · daily",
+            "1st Runner-Up · FLAME Blaze",
+            "McKinsey Forward Program",
+            "200+ VC reach-outs",
+            "500+ hours of fieldwork",
           ]}
           speed="slow"
         />
@@ -52,6 +55,9 @@ export default function Home() {
 
       {/* ── MUSEUM OF FAILURES ───── */}
       <Failures />
+
+      {/* ── DARK MODE TOGGLE ─────── */}
+      <DarkModeToggle />
 
       {/* ── CONTACT ──────────────── */}
       <Contact />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { WORK, type WorkItem } from "@/lib/data";
 import FadeIn from "./FadeIn";
@@ -23,9 +23,19 @@ function SketchUnderline({ color = "#FFE141" }: { color?: string }) {
 function WorkRow({ item, index }: { item: WorkItem; index: number }) {
   const [open, setOpen] = useState(false);
 
+  // Listen for mind-map click events to auto-open this card
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const id = (e as CustomEvent<{ id: string }>).detail.id;
+      if (id === item.id) setOpen(true);
+    };
+    window.addEventListener("open-work-card", handler);
+    return () => window.removeEventListener("open-work-card", handler);
+  }, [item.id]);
+
   return (
     <FadeIn delay={index * 0.07}>
-      <div className={`border transition-all duration-300 ${open ? "border-line-dark shadow-sm" : "border-line hover:border-line-dark"}`}>
+      <div id={`work-${item.id}`} className={`border transition-all duration-300 ${open ? "border-line-dark shadow-sm" : "border-line hover:border-line-dark"}`}>
         {/* ── CARD FACE ── */}
         <div
           className="grid md:grid-cols-[180px_1fr] cursor-pointer group"
@@ -163,9 +173,9 @@ export default function Work() {
           <div className="mb-12">
             <span className="label-accent block mb-3">Apprenticeships</span>
             <h2 className="font-display font-medium text-fluid text-ink mb-2 leading-tight">
-              Four companies.
+              Five engagements.
               <br />
-              Four different challenges.
+              Five different problems.
             </h2>
             <p className="font-sketch text-base text-ink-muted">
               click any card to read the full story ↓

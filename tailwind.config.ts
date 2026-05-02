@@ -6,20 +6,22 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        paper:          "#FAFAF8",   // main page background
-        surface:        "#F5F4F0",   // card/section background
-        "surface-alt":  "#EEECEA",   // slightly darker surface
-        line:           "#D8D5CC",   // borders — slightly darker for contrast
-        "line-dark":    "#B8B5AB",   // pencil sketch lines
-        ink:            "#111111",   // primary text — richer black
-        "ink-muted":    "#524F4B",   // secondary text — more readable
-        "ink-faint":    "#8A8886",   // very faint / labels
-        yellow:         "#FFE141",   // diagram fill / accent
-        "yellow-soft":  "#FFFCE0",   // very light yellow bg tint
-        pencil:         "#B8B5AB",   // for hand-drawn lines
+        // All colors reference CSS vars — dark mode swaps the var values
+        paper:          "rgb(var(--color-paper) / <alpha-value>)",
+        surface:        "rgb(var(--color-surface) / <alpha-value>)",
+        "surface-alt":  "rgb(var(--color-surface-alt) / <alpha-value>)",
+        line:           "rgb(var(--color-line) / <alpha-value>)",
+        "line-dark":    "rgb(var(--color-line-dark) / <alpha-value>)",
+        ink:            "rgb(var(--color-ink) / <alpha-value>)",
+        "ink-muted":    "rgb(var(--color-ink-muted) / <alpha-value>)",
+        "ink-faint":    "rgb(var(--color-ink-faint) / <alpha-value>)",
+        yellow:         "rgb(var(--color-yellow) / <alpha-value>)",
+        "yellow-soft":  "rgb(var(--color-yellow-soft) / <alpha-value>)",
+        pencil:         "rgb(var(--color-pencil) / <alpha-value>)",
       },
       fontFamily: {
         display: ["var(--font-space)", "system-ui", "sans-serif"],

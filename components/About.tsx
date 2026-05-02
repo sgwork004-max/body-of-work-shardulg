@@ -32,12 +32,12 @@ function JourneyTimeline() {
 
   // Wider viewBox (840) so Stahl and YelloSKYE have breathing room
   const STOPS = [
-    { x: 75,  label: "Hide & Sneak", note: "₹6L sales",       above: true  },
-    { x: 220, label: "KOEL",         note: "73 interviews",    above: false },
-    { x: 380, label: "Therefore",    note: "12+ meetings",     above: true  },
-    { x: 530, label: "Rayden",       note: "228 outreaches",   above: false },
-    { x: 650, label: "Stahl",        note: "5 domains",        above: true  },
-    { x: 775, label: "YelloSKYE",    note: "current ●",        above: false },
+    { x: 75,  label: "Hide & Sneak", note: "₹6L sales",        above: true  },
+    { x: 210, label: "KOEL",         note: "73 interviews",     above: false },
+    { x: 355, label: "Therefore",    note: "200+ reach-outs",   above: true  },
+    { x: 490, label: "Rayden",       note: "228 outreaches",    above: false },
+    { x: 620, label: "Stahl",        note: "Retail design",     above: true  },
+    { x: 775, label: "YelloSKYE",    note: "current ●",         above: false },
   ];
 
   return (
@@ -119,18 +119,19 @@ function JourneyTimeline() {
    Skill cluster — visual tag grid
    ──────────────────────────────────────────────────────────── */
 const SKILL_CLUSTERS = [
-  { cluster: "Research",       tags: ["73 farmer interviews", "On-ground fieldwork", "Insight synthesis", "1000+ data points"] },
-  { cluster: "Sales & BD",     tags: ["228 cold outreaches", "₹6L retail sales", "ICP development", "20+ meetings closed"] },
-  { cluster: "Brand & Content",tags: ["Brand messaging framework", "Website end-to-end", "LinkedIn content", "First inbound lead"] },
-  { cluster: "Strategy & Ops", tags: ["GTM planning", "Hiring systems", "Vendor evaluation", "Credential decks"] },
+  { cluster: "Research & Insight",  tags: ["73 interviews · 5 cities", "On-ground fieldwork", "1,000+ data points", "Insight → action briefs"] },
+  { cluster: "Sales & BD",          tags: ["228 cold outreaches", "₹6L retail sales", "ICP development", "20+ meetings closed"] },
+  { cluster: "Brand & Content",     tags: ["Brand messaging framework", "Website end-to-end", "LinkedIn content calendar", "First inbound lead"] },
+  { cluster: "Ops & Automation",    tags: ["Ops pipeline tracker", "Google Apps Script MIS", "Hiring systems", "SEO audit + strategy"] },
 ];
 
 const FACTS = [
-  { label: "Currently",  value: "YelloSKYE — Founder's Office Intern" },
-  { label: "Based in",   value: "Pune, India" },
-  { label: "School",     value: "Let's Enterprise" },
-  { label: "Writing at", value: "Conflexions + Medium" },
-  { label: "Mode",       value: "Learning by doing" },
+  { label: "Currently",   value: "YelloSKYE — Founder's Office Intern" },
+  { label: "Also at",     value: "Rayden Design Studio — BD" },
+  { label: "Based in",    value: "Pune, India" },
+  { label: "School",      value: "Let's Enterprise" },
+  { label: "Achievement", value: "1st Runner-Up · FLAME Blaze Hackathon" },
+  { label: "Writing at",  value: "Conflexions + @EscapingAverage" },
 ];
 
 /* ─────────────────────────────────────────────────────────────

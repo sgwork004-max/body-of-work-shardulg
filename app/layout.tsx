@@ -43,6 +43,14 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${caveat.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        {/* Prevent flash of wrong theme on load */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var m=localStorage.getItem('theme');if(m==='dark')document.documentElement.classList.add('dark');}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
