@@ -6,10 +6,10 @@ import { META } from "@/lib/data";
 
 const NAV_LINKS = [
   { label: "Work",     href: "#work" },
-  { label: "Arc",      href: "#arc" },
   { label: "Projects", href: "#projects" },
   { label: "Thinking", href: "#thinking" },
   { label: "Writing",  href: "#writing" },
+  { label: "About",    href: "#about" },
   { label: "Failures", href: "#failures" },
 ];
 

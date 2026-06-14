@@ -311,7 +311,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Title */}
-            {["Three years.", "Nine companies.", "Always figured it out."].map((line, i) => (
+            {["Figuring out", "how to figure", "things out."].map((line, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.h1
                   initial={{ y: "110%", opacity: 0 }}
@@ -321,7 +321,7 @@ export default function Hero() {
                   style={{ fontSize: "clamp(2.6rem, 5.8vw, 5rem)" }}
                 >
                   {i === 2 ? (
-                    <span className="highlight-yellow">Always figured it out.</span>
+                    <span className="highlight-yellow">things out.</span>
                   ) : (
                     <span className="text-ink">{line}</span>
                   )}
@@ -336,13 +336,11 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.58 }}
               className="text-ink-muted text-base leading-relaxed max-w-md mb-10"
             >
-              At 20, I ran 73 interviews across 5 cities and presented the
-              research to the MD of Kirloskar Oil Engines. Since then: sales,
-              marketing, and ops across eight more companies.{" "}
-              <span className="text-ink font-medium">Graduating June 2026.</span>
+              Five companies. Two years. Sales, brand, research, hiring, and GTM —
+              each one owned end-to-end.<br />I walk into ambiguous problems and ship outcomes.
             </motion.p>
 
-            {/* CTA */}
+            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -356,7 +354,23 @@ export default function Hero() {
                 See the work
                 <span className="group-hover:translate-x-1 transition-transform duration-200 inline-block">→</span>
               </a>
+              <a
+                href="#about"
+                className="inline-flex items-center gap-2 px-7 py-3.5 border border-line text-ink-muted text-sm hover:border-ink hover:text-ink transition-colors duration-200"
+              >
+                Who I am
+              </a>
             </motion.div>
+
+            {/* Annotation */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.1 }}
+              className="font-sketch text-ink-faint mt-6"
+            >
+              research → sales → strategy → execution ↓
+            </motion.p>
           </div>
 
           {/* RIGHT — Interactive mind map */}

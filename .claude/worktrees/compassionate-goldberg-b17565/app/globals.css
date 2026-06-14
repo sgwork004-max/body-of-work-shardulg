@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS CUSTOM PROPERTIES — Light Mode ──────────────────────────────────── */
+:root {
+  --font-space:  "Space Grotesk", system-ui, sans-serif;
+  --font-caveat: "Caveat", cursive;
+  --font-mono:   "JetBrains Mono", "Fira Code", monospace;
+
+  /* Colors as RGB channels — enables Tailwind opacity modifiers */
+  --color-paper:        250 250 248;
+  --color-surface:      245 244 240;
+  --color-surface-alt:  238 236 234;
+  --color-line:         216 213 204;
+  --color-line-dark:    184 181 171;
+  --color-ink:          17  17  17;
+  --color-ink-muted:    82  79  75;
+  --color-ink-faint:    138 136 134;
+  --color-yellow:       255 225 65;
+  --color-yellow-soft:  255 252 224;
+  --color-pencil:       184 181 171;
+}
+
+/* ─── CSS CUSTOM PROPERTIES — Dark Mode ───────────────────────────────────── */
+html.dark {
+  --color-paper:        13  13  12;
+  --color-surface:      20  20  18;
+  --color-surface-alt:  28  28  26;
+  --color-line:         42  40  38;
+  --color-line-dark:    58  56  53;
+  --color-ink:          220 217 210;
+  --color-ink-muted:    160 157 152;
+  --color-ink-faint:    100 98  94;
+  --color-yellow:       255 225 65;
+  --color-yellow-soft:  26  22  0;
+  --color-pencil:       58  56  53;
+}
+
+/* ─── BASE ────────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--color-paper));
+  color: rgb(var(--color-ink));
+  font-family: var(--font-space);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── SCROLLBAR ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: rgb(var(--color-paper)); }
+::-webkit-scrollbar-thumb { background: rgb(var(--color-line-dark)); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(var(--color-ink)); }
+
+/* ─── SELECTION ───────────────────────────────────────────────────────────── */
+::selection {
+  background-color: rgb(var(--color-yellow));
+  color: rgb(var(--color-ink));
+}
+
+/* ─── FONT UTILITIES ──────────────────────────────────────────────────────── */
+/* Caveat needs to be bigger — raised to 1.15rem floor for legibility */
+.font-sketch {
+  font-family: var(--font-caveat);
+  font-size: 1.15rem;
+  line-height: 1.45;
+}
+
+/* Prevent Tailwind text-sm from making font-sketch illegible */
+.font-sketch.text-sm  { font-size: 1.05rem; }
+.font-sketch.text-xs  { font-size: 0.95rem; }
+.font-sketch.text-base { font-size: 1.15rem; }
+.font-sketch.text-lg  { font-size: 1.3rem; }
+.font-sketch.text-xl  { font-size: 1.5rem; }
+.font-sketch.text-2xl { font-size: 1.75rem; }
+
+.font-mono-custom { font-family: var(--font-mono); }
+
+/* ─── LABEL ───────────────────────────────────────────────────────────────── */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  line-height: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgb(var(--color-ink-faint));
+}
+
+.label-accent {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  line-height: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgb(var(--color-ink-muted));
+}
+
+/* ─── HOVER UNDERLINE ─────────────────────────────────────────────────────── */
+.hover-line {
+  position: relative;
+  display: inline-block;
+}
+.hover-line::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background-color: rgb(var(--color-ink));
+  transition: width 0.25s ease;
+}
+.hover-line:hover::after { width: 100%; }
+
+/* ─── CARD LIFT ───────────────────────────────────────────────────────────── */
+.card-lift {
+  transition: transform 0.25s cubic-bezier(0.21, 0.47, 0.32, 0.98),
+              box-shadow 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(26, 26, 26, 0.07);
+}
+
+/* ─── YELLOW HIGHLIGHT ────────────────────────────────────────────────────── */
+.highlight-yellow {
+  background: linear-gradient(transparent 55%, rgba(255, 225, 65, 0.55) 55%);
+  padding-bottom: 1px;
+}
+
+/* ─── ANNOTATION ──────────────────────────────────────────────────────────── */
+.annotation {
+  font-family: var(--font-caveat);
+  font-size: 1.3rem;
+  color: rgb(var(--color-ink-muted));
+  line-height: 1.4;
+}
+
+/* ─── DOT GRID ────────────────────────────────────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(circle, rgb(var(--color-line-dark)) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ─── SKETCH UNDERLINE ────────────────────────────────────────────────────── */
+.sketch-underline {
+  display: block;
+  width: 100%;
+  max-width: 100px;
+  height: 6px;
+  margin-top: 2px;
+}
+
+/* ─── DARK MODE — transition all backgrounds ─────────────────────────────── */
+html.dark * {
+  border-color: rgb(var(--color-line));
+}

@@ -24,7 +24,7 @@ export default function Contact() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         <div className="max-w-xl">
           <FadeIn>
-            <span className="label-accent block mb-4">Available · August 2026</span>
+            <span className="font-sketch text-sm text-ink-muted block mb-4">got a problem worth solving? ↓</span>
             <h2 className="font-display font-medium text-fluid text-ink leading-tight mb-4">
               Let&apos;s talk.
             </h2>
@@ -32,9 +32,8 @@ export default function Contact() {
 
           <FadeIn delay={0.1}>
             <p className="text-ink-muted text-sm leading-relaxed max-w-sm mb-10">
-              Looking for a founder&apos;s-office role — sales, marketing, or ops —
-              at a seed or Series A company. Based in Pune, available in
-              Bangalore from August 2026.
+              Open to interesting problems, collaborations, and conversations
+              with people building things that matter.
             </p>
           </FadeIn>
 
