@@ -1,16 +1,14 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import SocialProof from "@/components/SocialProof";
-import Timeline from "@/components/Timeline";
-import Work from "@/components/Work";
-import Projects from "@/components/Projects";
-import HowIThink from "@/components/HowIThink";
-import Writing from "@/components/Writing";
-import About from "@/components/About";
-import Failures from "@/components/Failures";
-import DarkModeToggle from "@/components/DarkModeToggle";
-import GraduationClose from "@/components/GraduationClose";
+import Ticker from "@/components/Ticker";
+import JourneyGallery from "@/components/JourneyGallery";
+import WorkTeaser from "@/components/WorkTeaser";
+import ProjectsTeaser from "@/components/ProjectsTeaser";
+import ThinkingTeaser from "@/components/ThinkingTeaser";
+import FailuresTeaser from "@/components/FailuresTeaser";
+import WritingTeaser from "@/components/WritingTeaser";
 import Contact from "@/components/Contact";
+import DarkModeToggle from "@/components/DarkModeToggle";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -18,41 +16,15 @@ export default function Home() {
     <main className="bg-paper">
       <Navigation />
       <Hero />
-
-      {/* ── SOCIAL PROOF — two founder quotes, no clicks needed ── */}
-      <SocialProof />
-
-      {/* ── TIMELINE — the arc of three years ── */}
-      <Timeline />
-
-      {/* ── WORK ─────────────────── */}
-      <Work />
-
-      {/* ── PROJECTS ─────────────── */}
-      <Projects />
-
-      {/* ── HOW I THINK ──────────── */}
-      <HowIThink />
-
-      {/* ── WRITING ──────────────── */}
-      <Writing />
-
-      {/* ── ABOUT ────────────────── */}
-      <About />
-
-      {/* ── MUSEUM OF FAILURES ───── */}
-      <Failures />
-
-      {/* ── GRADUATION CLOSE ─────── */}
-      <GraduationClose />
-
-      {/* ── CONTACT ──────────────── */}
+      <Ticker />
+      <JourneyGallery />
+      <WorkTeaser />
+      <ProjectsTeaser />
+      <ThinkingTeaser />
+      <FailuresTeaser />
+      <WritingTeaser />
       <Contact />
-
-      {/* ── DARK MODE TOGGLE ─────── */}
       <DarkModeToggle />
-
-      {/* ── FOOTER ───────────────── */}
       <Footer />
     </main>
   );
