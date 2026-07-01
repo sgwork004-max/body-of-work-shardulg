@@ -5,12 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { META } from "@/lib/data";
 
 const NAV_LINKS = [
-  { label: "Work",     href: "#work" },
-  { label: "Projects", href: "#projects" },
-  { label: "Thinking", href: "#thinking" },
-  { label: "Writing",  href: "#writing" },
-  { label: "About",    href: "#about" },
-  { label: "Failures", href: "#failures" },
+  { label: "Work",     href: "/work" },
+  { label: "Projects", href: "/projects" },
+  { label: "Studio",   href: "/studio" },
+  { label: "Writing",  href: "/writing" },
+  { label: "Failures", href: "/failures" },
 ];
 
 export default function Navigation() {
@@ -37,7 +36,7 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 h-14 flex items-center justify-between">
           {/* Logo */}
-          <a href="#top" className="flex items-center gap-1.5 group">
+          <a href="/" className="flex items-center gap-1.5 group">
             <span className="font-sketch text-lg text-ink group-hover:text-ink-muted transition-colors duration-200">
               SG /
             </span>
@@ -59,7 +58,7 @@ export default function Navigation() {
           {/* CTA + mobile toggle */}
           <div className="flex items-center gap-3">
             <a
-              href="#contact"
+              href="mailto:sg.work004@gmail.com"
               className="hidden md:inline-flex items-center gap-1.5 px-4 py-1.5 border border-line text-ink text-sm hover:bg-yellow hover:border-yellow transition-colors duration-200"
             >
               say hello
