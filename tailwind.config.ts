@@ -26,7 +26,7 @@ const config: Config = {
       fontFamily: {
         display: ["var(--font-space)", "system-ui", "sans-serif"],
         body:    ["var(--font-space)", "system-ui", "sans-serif"],
-        sketch:  ["var(--font-serif)", "Georgia", "serif"],
+        sketch:  ["var(--font-caveat)", "cursive"],
         mono:    ["var(--font-mono)", "monospace"],
       },
       fontSize: {

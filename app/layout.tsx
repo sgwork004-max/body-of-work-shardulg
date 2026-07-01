@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, DM_Serif_Display, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Caveat, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -9,11 +9,10 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const dmSerifDisplay = DM_Serif_Display({
+const caveat = Caveat({
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
+  weight: ["400", "600"],
+  variable: "--font-caveat",
   display: "swap",
 });
 
@@ -42,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${dmSerifDisplay.variable} ${jetbrainsMono.variable}`}
+      className={`${spaceGrotesk.variable} ${caveat.variable} ${jetbrainsMono.variable}`}
     >
       <head>
         {/* Prevent flash of wrong theme on load */}

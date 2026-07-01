@@ -5,8 +5,7 @@
 /* ─── CSS CUSTOM PROPERTIES — Light Mode ──────────────────────────────────── */
 :root {
   --font-space:  "Space Grotesk", system-ui, sans-serif;
-  --font-caveat: "DM Serif Display", Georgia, serif;
-  --font-serif:  "DM Serif Display", Georgia, serif;
+  --font-caveat: "Caveat", cursive;
   --font-mono:   "JetBrains Mono", "Fira Code", monospace;
 
   /* Colors as RGB channels — enables Tailwind opacity modifiers */
@@ -66,9 +65,20 @@ body {
 }
 
 /* ─── FONT UTILITIES ──────────────────────────────────────────────────────── */
+/* Caveat needs to be bigger — raised to 1.15rem floor for legibility */
 .font-sketch {
-  font-family: var(--font-serif);
+  font-family: var(--font-caveat);
+  font-size: 1.15rem;
+  line-height: 1.45;
 }
+
+/* Prevent Tailwind text-sm from making font-sketch illegible */
+.font-sketch.text-sm  { font-size: 1.05rem; }
+.font-sketch.text-xs  { font-size: 0.95rem; }
+.font-sketch.text-base { font-size: 1.15rem; }
+.font-sketch.text-lg  { font-size: 1.3rem; }
+.font-sketch.text-xl  { font-size: 1.5rem; }
+.font-sketch.text-2xl { font-size: 1.75rem; }
 
 .font-mono-custom { font-family: var(--font-mono); }
 
@@ -126,10 +136,10 @@ body {
 
 /* ─── ANNOTATION ──────────────────────────────────────────────────────────── */
 .annotation {
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-family: var(--font-caveat);
+  font-size: 1.3rem;
   color: rgb(var(--color-ink-muted));
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 /* ─── DOT GRID ────────────────────────────────────────────────────────────── */

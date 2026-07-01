@@ -5,11 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { META } from "@/lib/data";
 
 const NAV_LINKS = [
-  { label: "Work",     href: "/work" },
-  { label: "Projects", href: "/projects" },
-  { label: "Thinking", href: "/thinking" },
-  { label: "Failures", href: "/failures" },
-  { label: "Writing",  href: "/writing" },
+  { label: "Work",     href: "#work" },
+  { label: "Projects", href: "#projects" },
+  { label: "Thinking", href: "#thinking" },
+  { label: "Writing",  href: "#writing" },
+  { label: "About",    href: "#about" },
+  { label: "Failures", href: "#failures" },
 ];
 
 export default function Navigation() {
@@ -34,13 +35,10 @@ export default function Navigation() {
             : "bg-transparent"
         }`}
       >
-        {/* Yellow top accent visible behind nav */}
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-yellow" />
-
-        <div className="max-w-7xl mx-auto px-6 md:px-12 h-14 flex items-center justify-between mt-[3px]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 h-14 flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-1.5 group">
-            <span className="font-display font-semibold text-ink text-sm tracking-tight group-hover:text-ink-muted transition-colors duration-200">
+          <a href="#top" className="flex items-center gap-1.5 group">
+            <span className="font-sketch text-lg text-ink group-hover:text-ink-muted transition-colors duration-200">
               SG /
             </span>
           </a>
@@ -61,7 +59,7 @@ export default function Navigation() {
           {/* CTA + mobile toggle */}
           <div className="flex items-center gap-3">
             <a
-              href="/#contact"
+              href="#contact"
               className="hidden md:inline-flex items-center gap-1.5 px-4 py-1.5 border border-line text-ink text-sm hover:bg-yellow hover:border-yellow transition-colors duration-200"
             >
               say hello
@@ -97,7 +95,7 @@ export default function Navigation() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-40 bg-paper flex flex-col justify-center px-8"
           >
-            <div className="space-y-1">
+            <div className="space-y-2">
               {NAV_LINKS.map((link, i) => (
                 <motion.a
                   key={link.href}
@@ -106,7 +104,7 @@ export default function Navigation() {
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.06 }}
-                  className="block font-display font-semibold text-3xl text-ink hover:text-yellow transition-colors duration-200 py-2.5"
+                  className="block font-sketch text-4xl text-ink hover:text-ink-muted transition-colors duration-200 py-2"
                 >
                   {link.label}
                 </motion.a>
@@ -118,7 +116,7 @@ export default function Navigation() {
               transition={{ delay: 0.35 }}
               className="mt-10 pt-6 border-t border-line"
             >
-              <a href={`mailto:${META.email}`} className="text-sm text-ink-faint">
+              <a href={`mailto:${META.email}`} className="font-sketch text-sm text-ink-faint">
                 {META.email}
               </a>
             </motion.div>

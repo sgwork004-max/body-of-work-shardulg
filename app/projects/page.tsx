@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ALL_PROJECTS, type FullProject } from "@/lib/data";
 import Navigation from "@/components/Navigation";
-import DarkModeToggle from "@/components/DarkModeToggle";
 import Footer from "@/components/Footer";
 
 const BY_YEAR = ALL_PROJECTS.reduce<Record<string, FullProject[]>>((acc, p) => {
@@ -162,40 +162,41 @@ export default function ProjectsPage() {
       <Navigation />
 
       {/* Page header */}
-      <div className="pt-24 pb-12 border-b border-line">
-        <div className="max-w-5xl mx-auto px-6 md:px-12">
-          <div className="flex items-center gap-3 mb-5">
-            <a href="/" className="font-mono text-[0.55rem] tracking-widest uppercase text-ink-faint hover:text-ink transition-colors">
-              Home
-            </a>
-            <span className="text-line-dark text-xs">→</span>
-            <span className="font-mono text-[0.55rem] tracking-widest uppercase text-ink-muted">Projects</span>
+      <div className="pt-24 pb-10 px-6 md:px-12 max-w-7xl mx-auto">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 font-sketch text-sm text-ink-faint hover:text-ink transition-colors mb-8 group"
+        >
+          <motion.span initial={{ x: 0 }} whileHover={{ x: -3 }} transition={{ duration: 0.15 }}>
+            ←
+          </motion.span>
+          back to home
+        </Link>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <span className="label-accent block mb-3">Complete archive</span>
+            <h1 className="font-display font-medium text-fluid text-ink leading-tight">
+              Every project.
+              <br />
+              Every story.
+            </h1>
           </div>
-          <span className="label-accent block mb-4">Complete archive</span>
-          <h1
-            className="font-display font-semibold text-ink"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", lineHeight: 0.93 }}
-          >
-            Projects
-          </h1>
-          <p className="text-ink-muted mt-5 text-lg max-w-xl leading-relaxed">
-            {ALL_PROJECTS.length} projects across 3 years — click any entry to read the full story.
+          <p className="font-sketch text-sm text-ink-muted max-w-xs leading-relaxed">
+            {ALL_PROJECTS.length} projects across 3 years —
+            click any entry to read the full story
           </p>
         </div>
       </div>
 
-      {/* Timeline by year */}
-      <div className="max-w-5xl mx-auto px-6 md:px-12 py-14 pb-20">
+      {/* Timeline */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pb-20">
         {YEARS.map((year) => {
           const projects = BY_YEAR[year];
           return (
             <div key={year} className="mb-14">
               {/* Year marker */}
               <div className="flex items-center gap-4 mb-6">
-                <span
-                  className="font-display font-semibold text-ink-faint"
-                  style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: 1 }}
-                >
+                <span className="font-sketch text-4xl md:text-5xl text-ink-faint">
                   {year}
                 </span>
                 <div className="flex-1 h-px bg-line" />
@@ -206,6 +207,7 @@ export default function ProjectsPage() {
 
               {/* Entries */}
               <div className="relative">
+                {/* Vertical timeline line */}
                 <div className="absolute left-[4px] top-5 bottom-5 w-px bg-line" />
                 <div className="space-y-3">
                   {projects.map((project) => (
@@ -218,7 +220,6 @@ export default function ProjectsPage() {
         })}
       </div>
 
-      <DarkModeToggle />
       <Footer />
     </main>
   );
