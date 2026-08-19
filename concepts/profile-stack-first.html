@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile section, stack-first directions</title>
+  <style>
+    :root {
+      --ink: #10100e;
+      --paper: #fbfbf8;
+      --warm: #e9e8e2;
+      --line: #c9c8c1;
+      --yellow: #ffed72;
+      --sans: Arial, Helvetica, sans-serif;
+      --mono: "SFMono-Regular", Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--warm); color: var(--ink); font-family: var(--sans); }
+    body { padding: 24px 0; }
+    .concept {
+      width: min(1536px, calc(100vw - 48px));
+      height: 850px;
+      margin: 0 auto 36px;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--paper);
+      background-image: radial-gradient(#d8d6ce 0.7px, transparent 0.7px);
+      background-size: 8px 8px;
+    }
+    .concept::after {
+      content: attr(data-name);
+      position: absolute;
+      top: 28px;
+      right: 30px;
+      z-index: 30;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      padding: 9px 15px 8px;
+      background: rgba(251,251,248,.94);
+      font: 700 11px/1 var(--mono);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .photo {
+      position: absolute;
+      overflow: hidden;
+      border: 1px solid #7e7d76;
+      border-radius: 18px;
+      background: #ddd;
+      box-shadow: 0 18px 38px rgba(0,0,0,.12);
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .portrait {
+      border: 2px solid var(--ink);
+      box-shadow: 14px 14px 0 rgba(255,237,114,.75);
+    }
+    .portrait img { object-position: 50% 36%; }
+    .tag {
+      position: absolute;
+      z-index: 12;
+      padding: 8px 11px 7px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--ink);
+      font: 700 10px/1 var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .copy {
+      position: absolute;
+      z-index: 20;
+    }
+    .eyebrow {
+      margin: 0 0 20px;
+      font: 700 12px/1 var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: 70px;
+      line-height: .92;
+      letter-spacing: -.065em;
+      max-width: 620px;
+    }
+    h1 mark { background: linear-gradient(transparent 72%, var(--yellow) 72%); color: inherit; }
+    .lead {
+      max-width: 540px;
+      margin: 24px 0 0;
+      font-size: 25px;
+      line-height: 1.16;
+      font-weight: 700;
+      letter-spacing: -.025em;
+    }
+    .note {
+      max-width: 500px;
+      margin: 16px 0 0;
+      font-size: 17px;
+      line-height: 1.45;
+      color: #56554f;
+    }
+    .identity {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      font: 700 11px/1 var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .identity::before { content: ""; width: 40px; height: 4px; background: var(--yellow); }
+
+    /* A: contact sheet */
+    .a .copy { left: 84px; top: 110px; width: 450px; }
+    .a h1 { font-size: 62px; }
+    .a .photo.one { left: 590px; top: 72px; width: 540px; height: 354px; transform: rotate(-1.4deg); }
+    .a .photo.two { left: 1010px; top: 276px; width: 430px; height: 318px; transform: rotate(2.2deg); }
+    .a .photo.three { left: 540px; top: 405px; width: 505px; height: 332px; transform: rotate(1deg); }
+    .a .photo.four { left: 904px; top: 595px; width: 440px; height: 222px; transform: rotate(-1deg); }
+    .a .photo.portrait { left: 116px; top: 520px; width: 220px; height: 250px; transform: rotate(-2deg); }
+    .a .portrait img { object-position: 50% 32%; }
+    .a .tag { left: 292px; top: 737px; }
+
+    /* B: working wall */
+    .b .copy {
+      left: 78px;
+      bottom: 72px;
+      width: 620px;
+      padding: 28px 30px 30px;
+      border: 1px solid var(--ink);
+      border-radius: 18px;
+      background: rgba(251,251,248,.96);
+      box-shadow: 12px 12px 0 rgba(255,237,114,.72);
+    }
+    .b h1 { font-size: 56px; max-width: 560px; }
+    .b .lead { font-size: 21px; max-width: 520px; margin-top: 18px; }
+    .b .note { display: none; }
+    .b .photo.one { left: 70px; top: 72px; width: 590px; height: 382px; transform: rotate(-1deg); }
+    .b .photo.two { left: 625px; top: 84px; width: 390px; height: 310px; transform: rotate(1.5deg); }
+    .b .photo.three { left: 972px; top: 92px; width: 455px; height: 334px; transform: rotate(-1deg); }
+    .b .photo.four { left: 722px; top: 374px; width: 530px; height: 360px; transform: rotate(1deg); }
+    .b .photo.portrait { right: 78px; bottom: 74px; width: 210px; height: 238px; transform: rotate(2deg); z-index: 18; }
+    .b .tag { right: 112px; bottom: 50px; }
+
+    /* C: panoramic reel */
+    .c .copy { left: 78px; top: 80px; width: 560px; }
+    .c h1 { font-size: 64px; }
+    .c .lead { font-size: 22px; max-width: 500px; }
+    .c .note { max-width: 465px; }
+    .c .reel {
+      position: absolute;
+      left: 70px;
+      right: 70px;
+      bottom: 62px;
+      height: 405px;
+      display: grid;
+      grid-template-columns: 1.1fr 1.45fr 1fr;
+      gap: 16px;
+      padding: 18px;
+      border: 1px solid var(--ink);
+      border-radius: 22px;
+      background: #f3f2ed;
+      box-shadow: 0 20px 45px rgba(0,0,0,.1);
+    }
+    .c .reel .frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 13px;
+      border: 1px solid #8d8c84;
+    }
+    .c .reel img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .c .reel .frame:nth-child(2) img { object-position: 50% 35%; }
+    .c .photo.portrait { right: 112px; top: 88px; width: 190px; height: 215px; transform: rotate(2deg); }
+    .c .tag { right: 82px; top: 276px; }
+
+    @media (max-width: 900px) {
+      body { padding: 0; }
+      .concept { width: 100vw; height: auto; min-height: 100vh; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <section class="concept a" id="stack-a" data-name="A · The Contact Sheet">
+    <div class="copy">
+      <p class="eyebrow">00 · Profile</p>
+      <h1>Hi, I’m<br><mark>Shardul.</mark></h1>
+      <p class="lead">I learn by getting close enough to the work to be useful.</p>
+      <p class="note">I like live problems, clear ownership, and teams that care about the details. I ask questions early, learn quickly, and stay with the work until the next move is clear.</p>
+      <span class="identity">Business student · operator in training</span>
+    </div>
+    <figure class="photo one"><img src="../assets/images/profile-presentation.jpg" alt="" /></figure>
+    <figure class="photo two"><img src="../assets/images/profile-ground-team.jpg" alt="" /></figure>
+    <figure class="photo three"><img src="../assets/images/profile-research-room.jpg" alt="" /></figure>
+    <figure class="photo four"><img src="../assets/images/profile-working-session.jpg" alt="" /></figure>
+    <figure class="photo portrait"><img src="../assets/images/profile-shardul.webp" alt="" /></figure>
+    <span class="tag">Shardul Gupta</span>
+  </section>
+
+  <section class="concept b" id="stack-b" data-name="B · The Working Wall">
+    <figure class="photo one"><img src="../assets/images/profile-presentation.jpg" alt="" /></figure>
+    <figure class="photo two"><img src="../assets/images/profile-ground-team.jpg" alt="" /></figure>
+    <figure class="photo three"><img src="../assets/images/profile-koel-team.jpg" alt="" /></figure>
+    <figure class="photo four"><img src="../assets/images/profile-research-room.jpg" alt="" /></figure>
+    <div class="copy">
+      <p class="eyebrow">00 · Profile</p>
+      <h1>Most at home<br><mark>inside the work.</mark></h1>
+      <p class="lead">I’m Shardul. Curious, low-ego, and happiest when there is something real to figure out.</p>
+    </div>
+    <figure class="photo portrait"><img src="../assets/images/profile-shardul.webp" alt="" /></figure>
+    <span class="tag">That’s me</span>
+  </section>
+
+  <section class="concept c" id="stack-c" data-name="C · The Field Reel">
+    <div class="copy">
+      <p class="eyebrow">00 · Profile</p>
+      <h1>Close to the room.<br><mark>Close to the work.</mark></h1>
+      <p class="lead">I’m Shardul, a business student building judgement through real responsibility.</p>
+      <p class="note">I pay attention, ask the extra question, and prefer being useful before being impressive.</p>
+      <span class="identity">Founder-led teams · buyer-facing work · operating systems</span>
+    </div>
+    <div class="reel">
+      <figure class="frame"><img src="../assets/images/profile-ground-team.jpg" alt="" /></figure>
+      <figure class="frame"><img src="../assets/images/profile-presentation.jpg" alt="" /></figure>
+      <figure class="frame"><img src="../assets/images/profile-koel-team.jpg" alt="" /></figure>
+    </div>
+    <figure class="photo portrait"><img src="../assets/images/profile-shardul.webp" alt="" /></figure>
+    <span class="tag">Shardul Gupta</span>
+  </section>
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile section alternatives</title>
+  <style>
+    :root {
+      --ink: #0a0a09;
+      --muted: #5d5d57;
+      --line: #d9d9d1;
+      --paper: #fff;
+      --yellow: #fff27a;
+      --soft-yellow: #fff9cf;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --sans: Inter, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      background: #e7e7e2;
+      color: var(--ink);
+      font-family: var(--sans);
+    }
+
+    body {
+      padding: 64px 0 96px;
+    }
+
+    body:has(.concept:target) {
+      padding: 24px 0;
+    }
+
+    body:has(.concept:target) > :not(.concept:target) {
+      display: none;
+    }
+
+    body:has(.concept:target) .concept:target {
+      margin-bottom: 0;
+    }
+
+    .board-label {
+      width: min(1540px, calc(100vw - 64px));
+      margin: 0 auto 18px;
+      color: #44443f;
+      font: 700 12px/1 var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .concept {
+      position: relative;
+      width: min(1540px, calc(100vw - 64px));
+      height: 850px;
+      margin: 0 auto 76px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 1px 1px, rgba(9, 9, 9, .055) .65px, transparent .75px) 0 0 / 10px 10px,
+        var(--paper);
+      box-shadow: 0 18px 55px rgba(0,0,0,.12);
+    }
+
+    .concept::before {
+      position: absolute;
+      top: 34px;
+      right: 38px;
+      z-index: 5;
+      content: attr(data-option);
+      padding: 10px 13px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: #fff;
+      font: 700 11px/1 var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      margin: 0 0 22px;
+      color: #5a5a54;
+      font: 700 12px/1 var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 78px;
+      line-height: .92;
+      letter-spacing: -.055em;
+      font-weight: 620;
+    }
+
+    h1 mark {
+      padding: 0 .06em;
+      color: inherit;
+      background: linear-gradient(transparent 72%, var(--yellow) 72%);
+    }
+
+    .lead {
+      margin: 30px 0 0;
+      font-size: 27px;
+      line-height: 1.15;
+      letter-spacing: -.025em;
+      font-weight: 650;
+    }
+
+    .body-copy {
+      margin: 19px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.52;
+    }
+
+    .footnote {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin-top: 32px;
+      font: 700 11px/1.4 var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .footnote::before {
+      width: 42px;
+      height: 4px;
+      content: "";
+      background: var(--yellow);
+    }
+
+    .photo {
+      position: absolute;
+      overflow: hidden;
+      border: 1px solid rgba(10,10,9,.52);
+      border-radius: 18px;
+      background: #ddd;
+      box-shadow: 0 18px 38px rgba(0,0,0,.14);
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo figcaption {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.92);
+      font: 700 10px/1 var(--mono);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    /* Option A: A deliberate two-column fold. Portrait is supporting proof,
+       while the work stack is the visual lead. */
+    .option-a {
+      display: grid;
+      grid-template-columns: .76fr 1.24fr;
+      gap: 72px;
+      padding: 92px 88px 78px;
+      align-items: center;
+    }
+
+    .option-a .copy {
+      align-self: center;
+      max-width: 520px;
+    }
+
+    .option-a .media {
+      position: relative;
+      height: 650px;
+    }
+
+    .option-a .portrait {
+      z-index: 4;
+      top: 92px;
+      left: 0;
+      width: 34%;
+      height: 480px;
+      transform: rotate(-2deg);
+      box-shadow: 16px 16px 0 var(--yellow), 0 18px 38px rgba(0,0,0,.14);
+    }
+
+    .option-a .portrait img { object-position: center 35%; }
+    .option-a .work-one {
+      z-index: 2;
+      top: 10px;
+      right: 0;
+      width: 62%;
+      height: 330px;
+      transform: rotate(1.1deg);
+    }
+    .option-a .work-two {
+      z-index: 3;
+      right: 3%;
+      bottom: 18px;
+      width: 67%;
+      height: 335px;
+      transform: rotate(-1deg);
+    }
+    .option-a .work-three {
+      z-index: 1;
+      top: 257px;
+      left: 24%;
+      width: 42%;
+      height: 250px;
+      transform: rotate(2.2deg);
+    }
+
+    /* Option B: The work occupies the first read. The portrait becomes a
+       signature, not a billboard. */
+    .option-b {
+      padding: 58px 72px 68px;
+    }
+
+    .option-b .gallery {
+      position: relative;
+      height: 520px;
+    }
+
+    .option-b .portrait {
+      z-index: 4;
+      top: 12px;
+      left: 0;
+      width: 23%;
+      height: 446px;
+      box-shadow: 15px 15px 0 var(--yellow), 0 18px 38px rgba(0,0,0,.14);
+    }
+
+    .option-b .portrait img { object-position: center 30%; }
+    .option-b .work-one {
+      z-index: 2;
+      top: 0;
+      left: 25%;
+      width: 45%;
+      height: 314px;
+      transform: rotate(-.6deg);
+    }
+    .option-b .work-two {
+      z-index: 3;
+      top: 176px;
+      left: 57%;
+      width: 42%;
+      height: 316px;
+      transform: rotate(1deg);
+    }
+    .option-b .work-three {
+      z-index: 1;
+      top: 266px;
+      left: 24%;
+      width: 37%;
+      height: 235px;
+      transform: rotate(.5deg);
+    }
+
+    .option-b .copy-row {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 70px;
+      margin-top: 34px;
+      align-items: end;
+    }
+
+    .option-b h1 {
+      font-size: 70px;
+    }
+
+    .option-b .lead {
+      max-width: 31ch;
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .option-b .body-copy {
+      max-width: 55ch;
+    }
+
+    /* Option C: Editorial field-notes layout. The images form a physical
+       evidence column and the copy stays compact. */
+    .option-c {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 78px;
+      padding: 72px 80px;
+      align-items: center;
+    }
+
+    .option-c .media {
+      position: relative;
+      height: 700px;
+    }
+
+    .option-c .portrait {
+      z-index: 5;
+      top: 18px;
+      left: 4%;
+      width: 32%;
+      height: 360px;
+      transform: rotate(-1.8deg);
+      box-shadow: 13px 13px 0 var(--yellow), 0 18px 38px rgba(0,0,0,.13);
+    }
+
+    .option-c .portrait img { object-position: center 32%; }
+    .option-c .work-one {
+      z-index: 2;
+      top: 0;
+      right: 0;
+      width: 64%;
+      height: 344px;
+      transform: rotate(.7deg);
+    }
+    .option-c .work-two {
+      z-index: 3;
+      right: 5%;
+      bottom: 7px;
+      width: 70%;
+      height: 360px;
+      transform: rotate(-.8deg);
+    }
+    .option-c .work-three {
+      z-index: 1;
+      bottom: 38px;
+      left: 0;
+      width: 38%;
+      height: 260px;
+      transform: rotate(1.5deg);
+    }
+
+    .option-c .copy {
+      max-width: 560px;
+    }
+
+    .option-c h1 {
+      font-size: 72px;
+    }
+
+    .option-c .signature {
+      margin-top: 34px;
+      padding: 20px 0 0 23px;
+      border-left: 3px solid var(--yellow);
+      font-family: "Bradley Hand", "Segoe Print", cursive;
+      font-size: 23px;
+      line-height: 1.25;
+      transform: rotate(-1deg);
+    }
+  </style>
+</head>
+<body>
+  <p class="board-label">Profile section study · actual photography · no site changes</p>
+
+  <section class="concept option-a" id="option-a" data-option="A · The Operator Fold">
+    <div class="copy">
+      <p class="eyebrow">00 · Profile</p>
+      <h1>Hi, I’m<br><mark>Shardul.</mark></h1>
+      <p class="lead">I learn fastest when the problem is real and the room is moving.</p>
+      <p class="body-copy">I am curious, direct, and hard to keep at the edge of a problem. I ask until I understand what is actually happening, then look for the next useful thing I can own.</p>
+      <p class="footnote">Business student · operator in training</p>
+    </div>
+    <div class="media">
+      <figure class="photo portrait"><img src="../assets/images/profile-shardul.webp" alt=""><figcaption>Shardul Gupta</figcaption></figure>
+      <figure class="photo work-one"><img src="../assets/images/profile-presentation.jpg" alt=""><figcaption>Presenting the recommendation</figcaption></figure>
+      <figure class="photo work-two"><img src="../assets/images/profile-ground-team.jpg" alt=""><figcaption>On the ground</figcaption></figure>
+      <figure class="photo work-three"><img src="../assets/images/profile-working-session.jpg" alt=""><figcaption>Inside the work</figcaption></figure>
+    </div>
+  </section>
+
+  <p class="board-label">Option B · photography first</p>
+  <section class="concept option-b" id="option-b" data-option="B · In The Room">
+    <div class="gallery">
+      <figure class="photo portrait"><img src="../assets/images/profile-shardul.webp" alt=""><figcaption>Shardul</figcaption></figure>
+      <figure class="photo work-one"><img src="../assets/images/profile-research-room.jpg" alt=""><figcaption>Research room</figcaption></figure>
+      <figure class="photo work-two"><img src="../assets/images/profile-koel-team.jpg" alt=""><figcaption>Five-city study</figcaption></figure>
+      <figure class="photo work-three"><img src="../assets/images/profile-working-session.jpg" alt=""><figcaption>Founder-led session</figcaption></figure>
+    </div>
+    <div class="copy-row">
+      <div>
+        <p class="eyebrow">00 · Profile</p>
+        <h1><mark>In the room.</mark></h1>
+      </div>
+      <div>
+        <p class="lead">I would rather be close to the decision than commenting from outside it.</p>
+        <p class="body-copy">That is how I learn. I pay attention to the people, the details, and the point where a good idea gets stuck. Then I ask what would make it move.</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="board-label">Option C · editorial and personal</p>
+  <section class="concept option-c" id="option-c" data-option="C · Field Notes">
+    <div class="media">
+      <figure class="photo portrait"><img src="../assets/images/profile-shardul.webp" alt=""><figcaption>Shardul Gupta</figcaption></figure>
+      <figure class="photo work-one"><img src="../assets/images/profile-koel-team.jpg" alt=""><figcaption>With the research team</figcaption></figure>
+      <figure class="photo work-two"><img src="../assets/images/profile-presentation.jpg" alt=""><figcaption>Making the case</figcaption></figure>
+      <figure class="photo work-three"><img src="../assets/images/profile-ground-team.jpg" alt=""><figcaption>Building on the ground</figcaption></figure>
+    </div>
+    <div class="copy">
+      <p class="eyebrow">00 · Profile</p>
+      <h1>Curious by default.<br><mark>Useful on purpose.</mark></h1>
+      <p class="lead">I’m Shardul. I like real work, clear ownership, and teams that care about getting the details right.</p>
+      <p class="body-copy">I tend to ask one more question than expected. I am comfortable starting before the answer is obvious, and I would rather leave with a useful next move than a polished theory.</p>
+      <p class="signature">Give me context, a real problem, and room to contribute.</p>
+    </div>
+  </section>
+</body>
+</html>

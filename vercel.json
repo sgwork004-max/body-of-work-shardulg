@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/Work/yelloskye/", "destination": "/Work/#yelloskye", "permanent": true },
+    { "source": "/Work/therefore/", "destination": "/Work/#therefore", "permanent": true },
+    { "source": "/Projects/koel/", "destination": "/Projects/#koel", "permanent": true },
+    { "source": "/Projects/history-lit-fest/", "destination": "/Projects/#history-lit-fest", "permanent": true },
+    { "source": "/Projects/digital-marketing/", "destination": "/Projects/#digital-marketing", "permanent": true }
+  ]
+}
