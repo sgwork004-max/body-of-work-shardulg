@@ -348,7 +348,7 @@
   }
 
   .hero-atlas-visual {
-    width: min(var(--page), calc((100svh - 246px) * 2.0861423221));
+    width: min(var(--page), calc((100svh - 246px) * 1.7768331562));
     height: 100%;
     min-height: 0;
     margin: clamp(-8px, -0.8svh, -3px) auto 0;
@@ -393,7 +393,7 @@
   }
 
   .hero-atlas-visual {
-    width: min(var(--page), calc((100svh - 220px) * 2.0861423221));
+    width: min(var(--page), calc((100svh - 220px) * 1.7768331562));
   }
 
   .hero-atlas-rail a {
@@ -421,7 +421,7 @@
   }
 
   .hero-atlas-visual {
-    width: min(var(--page), calc((100svh - 190px) * 2.0861423221));
+    width: min(var(--page), calc((100svh - 190px) * 1.7768331562));
   }
 
   .hero-atlas-rail small {
@@ -446,7 +446,7 @@
   .hero-atlas-visual {
     width: 100%;
     margin: 24px auto 0;
-    aspect-ratio: 1671 / 801;
+    aspect-ratio: 1672 / 941;
     overflow: visible;
   }
 }
@@ -536,8 +536,8 @@
   }
 
   .hero-atlas-visual {
-    width: 112%;
-    margin: 28px 0 0 -6%;
+    width: 100%;
+    margin: 28px auto 0;
     aspect-ratio: 1672 / 941;
   }
 
