@@ -35,53 +35,29 @@ const chips = document.querySelectorAll("[data-filter]");
 const entries = document.querySelectorAll("[data-entry]");
 const registerCount = document.querySelector("[data-register-count]");
 
-const applyRegisterFilter = (filter) => {
-  let shown = 0;
-  entries.forEach((entry) => {
-    const visible = filter === "all" || (filter === "selected" ? entry.dataset.tier === "selected" : entry.dataset.entry === filter);
-    entry.classList.toggle("is-hidden", !visible);
-    if (visible) shown += 1;
-  });
-  if (registerCount) {
-    registerCount.textContent = `${shown} ${shown === 1 ? "entry" : "entries"} shown`;
-  }
-};
-
 chips.forEach((chip) => {
   chip.addEventListener("click", () => {
-    chips.forEach((c) => {
-      const active = c === chip;
-      c.classList.toggle("is-active", active);
-      c.setAttribute("aria-pressed", String(active));
-    });
+    chips.forEach((c) => c.classList.toggle("is-active", c === chip));
     const filter = chip.dataset.filter;
-    applyRegisterFilter(filter);
+    let shown = 0;
+    entries.forEach((entry) => {
+      const visible = filter === "all" || entry.dataset.entry === filter;
+      entry.classList.toggle("is-hidden", !visible);
+      if (visible) shown += 1;
+    });
+    if (registerCount) {
+      registerCount.textContent = `${shown} ${shown === 1 ? "entry" : "entries"} shown`;
+    }
   });
 });
 
-const initialRegisterFilter = document.querySelector("[data-filter].is-active")?.dataset.filter;
-if (initialRegisterFilter) applyRegisterFilter(initialRegisterFilter);
-
-const pageMain = document.querySelector("main");
-if (pageMain && !document.querySelector(".skip-link")) {
-  if (!pageMain.id) pageMain.id = "main-content";
-  const skipLink = document.createElement("a");
-  skipLink.className = "skip-link";
-  skipLink.href = `#${pageMain.id}`;
-  skipLink.textContent = "Skip to main content";
-  document.body.prepend(skipLink);
-}
-
 const copyEmail = document.querySelector("[data-copy-email]");
-const copyStatus = document.querySelector("[data-copy-status]");
 copyEmail?.addEventListener("click", async () => {
   try {
     await navigator.clipboard.writeText("sg.work004@gmail.com");
     copyEmail.textContent = "Copied.";
-    if (copyStatus) copyStatus.textContent = "Email address copied to clipboard.";
   } catch {
     copyEmail.textContent = "sg.work004@gmail.com";
-    if (copyStatus) copyStatus.textContent = "Copy failed. Email address shown on screen.";
   }
 });
 
