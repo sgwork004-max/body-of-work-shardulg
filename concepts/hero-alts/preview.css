@@ -1,0 +1,583 @@
+/* Temporary hero-alt previews — do not ship as production hero */
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --paper-deep: #f7f7f3;
+  --ink: #090909;
+  --secondary: #4f4f4a;
+  --muted: #696963;
+  --hairline: #deded8;
+  --brass: #fff27a;
+  --page: min(1240px, calc(100vw - 48px));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--ink);
+  background: #fff;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  background-color: #fff;
+  background-image: radial-gradient(circle, rgba(9, 9, 9, 0.055) 0 0.42px, transparent 0.58px);
+  background-size: 6px 6px;
+}
+
+.site-header {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+  min-height: 76px;
+  padding: 0 max(24px, calc((100vw - 1240px) / 2));
+  border: 0;
+  background: color-mix(in srgb, #fff 90%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+.mark {
+  grid-column: 1;
+  justify-self: start;
+  color: #090909;
+  font-family: Caveat, "Segoe Print", "Bradley Hand", cursive;
+  font-size: 1.75rem;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  transform: rotate(-4deg);
+}
+
+.nav {
+  grid-column: 2;
+  display: flex;
+  justify-self: center;
+  gap: 2px;
+  padding: 4px 6px;
+  border: 1px solid rgba(9, 9, 9, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 7px 24px rgba(9, 9, 9, 0.055);
+  backdrop-filter: blur(18px);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.nav a {
+  padding: 6px 10px 7px;
+  border-radius: 999px;
+  color: var(--secondary);
+  line-height: 1;
+}
+
+.nav a:hover {
+  background: #fff27a;
+  color: var(--ink);
+}
+
+.contact-pill {
+  grid-column: 3;
+  display: inline-flex;
+  min-height: 42px;
+  padding: 5px 6px 5px 15px;
+  border: 1px solid rgba(9, 9, 9, 0.75);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  gap: 11px;
+  align-items: center;
+  justify-self: end;
+  color: #090909;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.contact-pill b {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #090909;
+  border-radius: 50%;
+  background: #fff27a;
+  color: #090909;
+  font-size: 0.92rem;
+  place-items: center;
+}
+
+.preview-switcher {
+  position: fixed;
+  z-index: 40;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 280px;
+  padding: 8px;
+  border: 1px solid rgba(9, 9, 9, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  gap: 4px;
+  box-shadow: 0 10px 30px rgba(9, 9, 9, 0.08);
+  font: 700 0.58rem/1.2 "Space Mono", ui-monospace, monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.preview-switcher[hidden] {
+  display: none !important;
+}
+
+.preview-switcher a {
+  padding: 6px 8px;
+  border-radius: 4px;
+  color: var(--muted);
+}
+
+.preview-switcher a.is-active,
+.preview-switcher a:hover {
+  background: var(--brass);
+  color: var(--ink);
+}
+
+.hero-preview {
+  position: relative;
+  display: none;
+  width: 100vw;
+  height: calc(100svh - 76px);
+  min-height: 520px;
+  overflow: hidden;
+}
+
+body[data-dir="1"] .hero-1,
+body[data-dir="2"] .hero-2,
+body[data-dir="3"] .hero-3,
+body[data-dir="4"] .hero-4,
+body[data-dir="5"] .hero-5 {
+  display: grid;
+}
+
+.hero-cta {
+  display: inline-flex;
+  margin-top: clamp(12px, 2svh, 20px);
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--brass);
+  gap: 9px;
+  align-items: center;
+  width: fit-content;
+  font: 700 clamp(0.56rem, 0.66vw, 0.68rem)/1.2 "Space Mono", ui-monospace, monospace;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.hero-cta span {
+  font-size: 0.9rem;
+}
+
+.hero-support {
+  margin: 0;
+  max-width: 36ch;
+  color: var(--secondary);
+  font-size: clamp(0.88rem, 1.05vw, 1.05rem);
+  line-height: 1.55;
+}
+
+.hero-brand-caveat {
+  margin: 0;
+  font-family: Caveat, "Segoe Print", "Bradley Hand", cursive;
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  transform: rotate(-3deg);
+  transform-origin: left center;
+}
+
+.hero-brand-mono {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font: 700 clamp(0.57rem, 0.66vw, 0.68rem)/1.35 "Space Mono", ui-monospace, monospace;
+  letter-spacing: 0.09em;
+}
+
+.hero-h1 {
+  margin: 0;
+  max-width: 18ch;
+  font-size: clamp(1.85rem, 3.2vw, 3.05rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.hero-h1 mark {
+  padding: 0 0.05em;
+  background: linear-gradient(transparent 69%, var(--brass) 69% 97%, transparent 97%);
+  color: inherit;
+}
+
+/* ========== 1. Path Full-Bleed ========== */
+.hero-1 {
+  grid-template: 1fr / 1fr;
+}
+
+.hero-1 .plane {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-1 .plane img {
+  position: absolute;
+  inset: -8% -4% -2% -4%;
+  width: 108%;
+  height: 110%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 48% 58%;
+}
+
+.hero-1 .wash {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.55) 24%, rgba(255, 255, 255, 0.05) 48%, transparent 62%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, transparent 22%, transparent 78%, rgba(255, 255, 255, 0.18) 100%);
+  pointer-events: none;
+}
+
+.hero-1 .stack {
+  position: relative;
+  z-index: 2;
+  align-self: end;
+  justify-self: start;
+  width: min(520px, calc(100% - 64px));
+  margin: 0 0 clamp(36px, 6svh, 64px) max(32px, calc((100vw - 1240px) / 2));
+  display: grid;
+  gap: 14px;
+}
+
+.hero-1 .hero-h1 {
+  max-width: 16ch;
+}
+
+/* ========== 2. Name Monument ========== */
+.hero-2 {
+  grid-template-rows: 1fr minmax(34%, 42%);
+  background:
+    radial-gradient(circle at 1px 1px, rgba(9, 9, 9, 0.045) 0.65px, transparent 0.75px) 0 0 / 10px 10px,
+    #fff;
+}
+
+.hero-2 .monument {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 14px;
+  width: var(--page);
+  margin: 0 auto;
+  padding: clamp(24px, 4svh, 48px) 0 clamp(12px, 2svh, 24px);
+}
+
+.hero-2 .name {
+  margin: 0;
+  max-width: 12ch;
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(3.6rem, 9.2vw, 7.4rem);
+  font-weight: 550;
+  font-variation-settings: "SOFT" 20, "WONK" 0.4;
+  letter-spacing: -0.055em;
+  line-height: 0.88;
+}
+
+.hero-2 .subbrand {
+  margin: -4px 0 4px;
+  color: var(--muted);
+  font: 700 0.68rem/1.3 "Space Mono", ui-monospace, monospace;
+  letter-spacing: 0.12em;
+}
+
+.hero-2 .hero-h1 {
+  max-width: 22ch;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.15;
+}
+
+.hero-2 .band {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(9, 9, 9, 0.12);
+}
+
+.hero-2 .band img {
+  position: absolute;
+  inset: -18% 0 -8% 0;
+  width: 100%;
+  height: 126%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center 52%;
+}
+
+/* ========== 3. Single Threshold ========== */
+.hero-3 {
+  grid-template: 1fr / 1fr;
+}
+
+.hero-3 .plane {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-3 .plane img {
+  position: absolute;
+  /* Zoom hard into street cart → sales-floor threshold; path leaves right */
+  left: -8%;
+  top: -28%;
+  width: 210%;
+  height: 210%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 0% 88%;
+}
+
+.hero-3 .wash {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.5) 30%, transparent 52%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.12), transparent 35%);
+  pointer-events: none;
+}
+
+.hero-3 .stack {
+  position: relative;
+  z-index: 2;
+  align-self: start;
+  justify-self: start;
+  width: min(480px, calc(100% - 64px));
+  margin: clamp(36px, 7svh, 72px) 0 0 max(32px, calc((100vw - 1240px) / 2));
+  display: grid;
+  gap: 14px;
+}
+
+.hero-3 .brand-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.hero-3 .brand-row .hero-brand-caveat {
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+}
+
+.hero-3 .brand-row .hero-brand-mono {
+  margin: 0;
+}
+
+/* ========== 4. Ledger Line ========== */
+.hero-4 {
+  grid-template: 1fr / 1fr;
+}
+
+.hero-4 .plane {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-4 .plane img {
+  position: absolute;
+  left: -6%;
+  top: -6%;
+  width: 118%;
+  height: 118%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 68% 52%;
+}
+
+.hero-4 .wash {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.78) 26%, rgba(255, 255, 255, 0.18) 46%, transparent 62%),
+    radial-gradient(ellipse at 18% 45%, rgba(255, 255, 255, 0.55), transparent 55%);
+  pointer-events: none;
+}
+
+.hero-4 .ledger {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  justify-self: start;
+  width: min(420px, 34vw);
+  margin-left: max(32px, calc((100vw - 1240px) / 2));
+  display: grid;
+  gap: 16px;
+}
+
+.hero-4 .cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  align-items: center;
+}
+
+.hero-4 .cta-secondary {
+  color: var(--secondary);
+  font: 700 0.62rem/1.2 "Space Mono", ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-4 .cta-secondary:hover {
+  color: var(--ink);
+}
+
+/* ========== 5. Living Path ========== */
+.hero-5 {
+  grid-template: 1fr / 1fr;
+}
+
+.hero-5 .plane {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-5 .plane img {
+  position: absolute;
+  inset: -6% -3% -2% -3%;
+  width: 106%;
+  height: 110%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center 52%;
+}
+
+.hero-5 .wash {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.45) 30%, transparent 52%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent 25%);
+  pointer-events: none;
+}
+
+.hero-5 .path-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-5 .path-overlay path {
+  fill: none;
+  stroke: #fff27a;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 10px rgba(255, 242, 122, 0.75));
+  /* Settled / fully drawn — reinforces the PNG brass path */
+  stroke-dasharray: 2200;
+  stroke-dashoffset: 0;
+  opacity: 0.95;
+}
+
+.hero-5 .stack {
+  position: relative;
+  z-index: 2;
+  align-self: end;
+  justify-self: start;
+  width: min(460px, calc(100% - 64px));
+  margin: 0 0 clamp(40px, 7svh, 72px) max(32px, calc((100vw - 1240px) / 2));
+  display: grid;
+  gap: 12px;
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    min-height: 64px;
+    padding: 0 16px;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hero-preview {
+    height: calc(100svh - 64px);
+    min-height: 640px;
+  }
+
+  .hero-1 .stack,
+  .hero-3 .stack,
+  .hero-4 .ledger,
+  .hero-5 .stack {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .hero-1 .stack,
+  .hero-5 .stack {
+    align-self: end;
+    margin-bottom: 36px;
+  }
+
+  .hero-1 .wash,
+  .hero-3 .wash,
+  .hero-4 .wash,
+  .hero-5 .wash {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.15) 28%, transparent 45%),
+      linear-gradient(0deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.72) 28%, transparent 55%);
+  }
+
+  .hero-2 {
+    grid-template-rows: auto minmax(42%, 48%);
+  }
+
+  .hero-2 .monument {
+    width: calc(100% - 40px);
+    padding-top: 28px;
+  }
+
+  .hero-2 .name {
+    font-size: clamp(3.2rem, 14vw, 4.6rem);
+  }
+
+  .hero-3 .stack {
+    align-self: start;
+    margin-top: 36px;
+  }
+
+  .hero-4 .ledger {
+    width: calc(100% - 40px);
+    align-self: end;
+    margin-bottom: 40px;
+  }
+
+  .hero-h1 {
+    font-size: clamp(1.7rem, 7.5vw, 2.4rem);
+  }
+}
