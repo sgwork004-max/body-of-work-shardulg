@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radical hero directions · Body of Work</title>
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&amp;family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,20,0..1&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./preview.css" />
+  </head>
+  <body data-dir="1">
+    <header class="site-header">
+      <a class="mark" href="../../">SG/</a>
+      <nav class="nav" aria-label="Primary navigation"><a href="../../Work/">Work</a><a href="../../Projects/">Projects</a><a href="../../Studio/">Studio</a><a href="../../Writing/">Writing</a></nav>
+      <a class="contact-pill" href="../../#contact" aria-label="Contact Shardul"><span>Contact</span><b aria-hidden="true">↗</b></a>
+    </header>
+
+    <main>
+      <!-- 1. Desk Evidence -->
+      <section class="hero hero-1" aria-label="Desk Evidence preview">
+        <div class="plane" aria-hidden="true">
+          <img src="./assets/hero-radical-desk-artifacts.jpg" alt="" />
+          <div class="wash wash-paper"></div>
+        </div>
+        <div class="stack stack-bottom-left">
+          <p class="brand-caveat">SG/</p>
+          <p class="brand-mono">SHARDUL GUPTA · BODY OF WORK</p>
+          <h1>Evidence before the <mark>pitch.</mark></h1>
+          <p class="support">A commercial practice built from field notes, sales floors, outreach loops, and founder-side systems.</p>
+          <a class="cta" href="#work">View selected work <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <!-- 2. Type Monument -->
+      <section class="hero hero-2" aria-label="Type Monument preview">
+        <div class="monument">
+          <p class="brand-mono">BODY OF WORK</p>
+          <p class="name" aria-label="Shardul Gupta">SHARDUL<br />GUPTA</p>
+          <h1>Commercial judgment, earned in the <mark>room.</mark></h1>
+          <p class="support">Selected work across research, premium sales, B2B outreach, and founder-side operations.</p>
+          <a class="cta" href="#work">Enter the work <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <!-- 3. Signal Graph -->
+      <section class="hero hero-3" aria-label="Signal Graph preview">
+        <div class="plane" aria-hidden="true">
+          <img src="./assets/hero-radical-signal-graph.jpg" alt="" />
+          <div class="wash wash-ink"></div>
+        </div>
+        <div class="stack stack-mid-left on-dark">
+          <p class="brand-caveat">SG/</p>
+          <p class="brand-mono">SHARDUL GUPTA</p>
+          <h1>From buyer signal to business <mark>move.</mark></h1>
+          <p class="support">I turn unclear commercial problems into clearer messages, decision-ready insight, or systems a team can run.</p>
+          <a class="cta cta-on-dark" href="#work">See how it lands <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <!-- 4. Research Still -->
+      <section class="hero hero-4" aria-label="Research Still preview">
+        <div class="plane" aria-hidden="true">
+          <img src="./assets/hero-radical-film-still.jpg" alt="" />
+          <div class="wash wash-film"></div>
+        </div>
+        <div class="stack stack-bottom-left on-dark">
+          <p class="brand-caveat">SG/</p>
+          <p class="brand-mono">SHARDUL GUPTA · BODY OF WORK</p>
+          <h1>Get close enough to hear the <mark>real</mark> objection.</h1>
+          <p class="support">Buyer research, premium sales, outreach systems, and founder-side ops — selected commercial work.</p>
+          <a class="cta cta-on-dark" href="#work">View selected work <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <!-- 5. Brass Field -->
+      <section class="hero hero-5" aria-label="Brass Field preview">
+        <div class="brass-field" aria-hidden="true"></div>
+        <div class="stack stack-center-left on-brass">
+          <p class="brand-caveat brand-caveat-ink">SG/</p>
+          <p class="brand-mono brand-mono-ink">SHARDUL GUPTA</p>
+          <h1>Work that starts with the buyer and ends in an <em>outcome.</em></h1>
+          <p class="support">A commercial body of work spanning field research, sales floors, B2B outreach, and founder-side operations.</p>
+          <a class="cta cta-on-brass" href="#work">View selected work <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        var params = new URLSearchParams(location.search);
+        var dir = params.get("dir") || "1";
+        var shot = params.get("shot");
+        document.body.setAttribute("data-dir", dir);
+        if (shot === "1") document.body.classList.add("is-shot");
+      })();
+    </script>
+  </body>
+</html>

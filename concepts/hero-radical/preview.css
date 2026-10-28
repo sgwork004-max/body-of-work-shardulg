@@ -1,0 +1,389 @@
+:root {
+  --paper: #ffffff;
+  --paper-deep: #f7f7f3;
+  --ink: #090909;
+  --secondary: #4f4f4a;
+  --muted: #696963;
+  --brass: #fff27a;
+  --page: min(1240px, calc(100vw - 48px));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Fraunces", Georgia, serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Site chrome — mirrors production mark */
+.site-header {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  width: var(--page);
+  margin: 0 auto;
+  padding: 18px 0 10px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.mark {
+  font: 600 1.55rem/1 "Caveat", cursive;
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  display: flex;
+  gap: clamp(18px, 2.2vw, 28px);
+  font: 700 0.62rem/1 "Space Mono", ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav a {
+  color: var(--secondary);
+}
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  font: 700 0.62rem/1 "Space Mono", ui-monospace, monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.contact-pill b {
+  font-weight: 700;
+}
+
+/* Shot mode: only active hero, fixed viewport */
+body.is-shot .site-header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--page);
+  transform: translateX(-50%);
+}
+
+body.is-shot .hero {
+  display: none;
+  height: 100svh;
+  min-height: 720px;
+}
+
+body.is-shot[data-dir="1"] .hero-1,
+body.is-shot[data-dir="2"] .hero-2,
+body.is-shot[data-dir="3"] .hero-3,
+body.is-shot[data-dir="4"] .hero-4,
+body.is-shot[data-dir="5"] .hero-5 {
+  display: grid;
+}
+
+body:not(.is-shot) .hero {
+  display: grid;
+  height: calc(100svh - 64px);
+  min-height: 720px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid rgba(9, 9, 9, 0.12);
+}
+
+body:not(.is-shot)::before {
+  content: "Radical hero comps · concepts/hero-radical · production index untouched";
+  display: block;
+  width: var(--page);
+  margin: 8px auto 0;
+  color: var(--muted);
+  font: 700 0.58rem/1.4 "Space Mono", ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.plane {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.plane img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.wash-paper {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.55) 34%, rgba(255, 255, 255, 0.08) 58%, transparent 72%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.35) 0%, transparent 28%);
+}
+
+.wash-ink {
+  background:
+    linear-gradient(90deg, rgba(9, 9, 9, 0.88) 0%, rgba(9, 9, 9, 0.55) 36%, rgba(9, 9, 9, 0.12) 62%, transparent 78%),
+    linear-gradient(180deg, rgba(9, 9, 9, 0.25) 0%, transparent 30%);
+}
+
+.wash-film {
+  background:
+    linear-gradient(90deg, rgba(9, 9, 9, 0.72) 0%, rgba(9, 9, 9, 0.4) 38%, rgba(9, 9, 9, 0.1) 60%, transparent 78%),
+    linear-gradient(0deg, rgba(9, 9, 9, 0.55) 0%, transparent 42%);
+}
+
+.stack {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: var(--page);
+  max-width: 34rem;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 clamp(40px, 7svh, 72px);
+}
+
+.stack-bottom-left {
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.stack-mid-left {
+  height: 100%;
+  justify-content: center;
+  padding-bottom: 0;
+}
+
+.stack-center-left {
+  height: 100%;
+  justify-content: center;
+  padding-bottom: 0;
+  max-width: 38rem;
+}
+
+.brand-caveat {
+  margin: 0 0 4px;
+  font: 600 clamp(2rem, 3.2vw, 2.75rem)/0.9 "Caveat", cursive;
+  letter-spacing: 0.01em;
+}
+
+.brand-mono {
+  margin: 0 0 clamp(14px, 2.2svh, 22px);
+  color: var(--muted);
+  font: 700 clamp(0.58rem, 0.68vw, 0.7rem)/1.35 "Space Mono", ui-monospace, monospace;
+  letter-spacing: 0.1em;
+}
+
+.hero h1 {
+  max-width: 14ch;
+  margin: 0;
+  font-size: clamp(2.35rem, min(4.1vw, 6.2svh), 3.85rem);
+  font-weight: 550;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+}
+
+.hero h1 mark {
+  padding: 0 0.04em;
+  background: linear-gradient(transparent 68%, var(--brass) 68% 96%, transparent 96%);
+  color: inherit;
+}
+
+.support {
+  max-width: 34ch;
+  margin: clamp(14px, 2svh, 20px) 0 0;
+  color: var(--secondary);
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-size: clamp(0.72rem, min(0.95vw, 1.55svh), 0.88rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.55;
+}
+
+.cta {
+  display: inline-flex;
+  margin-top: clamp(16px, 2.4svh, 24px);
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--brass);
+  gap: 9px;
+  align-items: center;
+  font: 700 clamp(0.56rem, 0.66vw, 0.68rem)/1.2 "Space Mono", ui-monospace, monospace;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.cta span {
+  font-size: 0.9rem;
+}
+
+/* Dark overlays */
+.on-dark .brand-mono,
+.on-dark .support {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.on-dark h1,
+.on-dark .brand-caveat {
+  color: #fff;
+}
+
+.cta-on-dark {
+  color: #fff;
+  border-bottom-color: var(--brass);
+}
+
+/* 2 · Type Monument — typography is the image */
+.hero-2 {
+  background:
+    radial-gradient(circle at 1px 1px, rgba(9, 9, 9, 0.045) 0.65px, transparent 0.75px) 0 0 / 10px 10px,
+    var(--paper);
+  align-items: stretch;
+}
+
+.monument {
+  display: flex;
+  width: var(--page);
+  height: 100%;
+  margin: 0 auto;
+  padding: clamp(24px, 4svh, 40px) 0 clamp(36px, 6svh, 56px);
+  flex-direction: column;
+  justify-content: center;
+}
+
+.monument .brand-mono {
+  margin-bottom: clamp(8px, 1.4svh, 14px);
+  color: var(--ink);
+}
+
+.monument .name {
+  margin: 0 0 clamp(18px, 3svh, 28px);
+  font-size: clamp(4.2rem, min(13vw, 18svh), 9.5rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+}
+
+.monument h1 {
+  max-width: 22ch;
+  font-size: clamp(1.35rem, min(2.2vw, 3.2svh), 1.85rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.monument .support {
+  max-width: 42ch;
+}
+
+/* 5 · Brass Field — yellow is the image */
+.hero-5 {
+  background: var(--brass);
+}
+
+.brass-field {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 78% 30%, rgba(255, 255, 255, 0.35), transparent 60%),
+    radial-gradient(circle at 1px 1px, rgba(9, 9, 9, 0.06) 0.65px, transparent 0.75px) 0 0 / 12px 12px,
+    var(--brass);
+}
+
+.on-brass .brand-mono-ink {
+  color: rgba(9, 9, 9, 0.55);
+}
+
+.on-brass .brand-caveat-ink,
+.on-brass h1 {
+  color: var(--ink);
+}
+
+.on-brass h1 {
+  max-width: 16ch;
+}
+
+.on-brass h1 em {
+  font-style: italic;
+  font-weight: 600;
+  background: linear-gradient(transparent 68%, #fff 68% 96%, transparent 96%);
+}
+
+.on-brass .support {
+  color: rgba(9, 9, 9, 0.72);
+  max-width: 40ch;
+}
+
+.cta-on-brass {
+  border-bottom-color: var(--ink);
+}
+
+/* Header contrast on dark/brass heroes in shot mode */
+body.is-shot[data-dir="3"] .site-header,
+body.is-shot[data-dir="4"] .site-header {
+  color: #fff;
+}
+
+body.is-shot[data-dir="3"] .nav a,
+body.is-shot[data-dir="4"] .nav a {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.is-shot[data-dir="3"] .contact-pill,
+body.is-shot[data-dir="4"] .contact-pill {
+  border-color: rgba(255, 255, 255, 0.85);
+  color: #fff;
+}
+
+body.is-shot[data-dir="5"] .contact-pill {
+  border-color: var(--ink);
+  background: transparent;
+}
+
+@media (max-width: 820px) {
+  .nav {
+    display: none;
+  }
+
+  .hero h1 {
+    max-width: 12ch;
+  }
+
+  .monument .name {
+    font-size: clamp(3.4rem, 18vw, 5.5rem);
+  }
+}
